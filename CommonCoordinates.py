@@ -42,8 +42,8 @@ WEST_WALL = [
 ]
 
 ROOM_ITEMS = {
-    1: { "exit": NORTH_EXIT, "wall": NORTH_WALL },
-    2: { "exit": EAST_EXIT, "wall": EAST_WALL },
-    3: { "exit": SOUTH_EXIT, "wall": SOUTH_WALL },
-    4: { "exit": WEST_EXIT, "wall": WEST_WALL }
+    1: {"exit": NORTH_EXIT, "wall": NORTH_WALL},
+    2: {"exit": EAST_EXIT, "wall": EAST_WALL},
+    3: {"exit": SOUTH_EXIT, "wall": SOUTH_WALL},
+    4: {"exit": WEST_EXIT, "wall": WEST_WALL}
 }

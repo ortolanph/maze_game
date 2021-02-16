@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
+import sys
+
 import pygame
+
 from ColorPallete import BASE_PALLETE
 from GameRoom import GameRoom
-import sys
 
 BLACK = (0, 0, 0)
 arguments = sys.argv[1:]
