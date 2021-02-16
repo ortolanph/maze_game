@@ -21,3 +21,11 @@ Where:
  * **y** can be between 0 and 3
 
 The starting room is at (0,1) and the ending room is at (3,3), and it's merely a coincidence.
+
+## Installing Libs
+
+Run the following command:
+
+```shell
+pip3 install -r requirements.txt
+```
