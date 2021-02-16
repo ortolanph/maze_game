@@ -1,8 +1,11 @@
+# -*- coding: utf-8 -*-
 import pygame
 from ColorPallete import BASE_PALLETE
 from GameRoom import GameRoom
+import sys
 
 BLACK = (0, 0, 0)
+arguments = sys.argv[1:]
 
 
 def main():
@@ -44,7 +47,7 @@ def main():
         ]
     ]
 
-    current_room = maze[3][3]
+    current_room = maze[int(arguments[0])][int(arguments[1])]
 
     clock = pygame.time.Clock()
 
