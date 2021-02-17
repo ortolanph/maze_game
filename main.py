@@ -5,9 +5,10 @@ import pygame
 
 from ColorPallete import BASE_PALLETE
 from GameRoom import GameRoom
+from Player import Player
 
-BLACK = (0, 0, 0)
 arguments = sys.argv[1:]
+PLAYER_STEP = 10
 
 
 def main():
@@ -49,7 +50,13 @@ def main():
         ]
     ]
 
-    current_room = maze[int(arguments[0])][int(arguments[1])]
+    player = Player()
+    movingsprites = pygame.sprite.Group()
+    movingsprites.add(player)
+
+    current_room_x = 1
+    current_room_y = 0
+    current_room = maze[int(current_room_y)][int(current_room_x)]
 
     clock = pygame.time.Clock()
 
@@ -60,8 +67,50 @@ def main():
             if event.type == pygame.QUIT:
                 done = True
 
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_LEFT:
+                    player.changespeed(-PLAYER_STEP, 0)
+                if event.key == pygame.K_RIGHT:
+                    player.changespeed(PLAYER_STEP, 0)
+                if event.key == pygame.K_UP:
+                    player.changespeed(0, -PLAYER_STEP)
+                if event.key == pygame.K_DOWN:
+                    player.changespeed(0, PLAYER_STEP)
+
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_LEFT:
+                    player.changespeed(PLAYER_STEP, 0)
+                if event.key == pygame.K_RIGHT:
+                    player.changespeed(-PLAYER_STEP, 0)
+                if event.key == pygame.K_UP:
+                    player.changespeed(0, PLAYER_STEP)
+                if event.key == pygame.K_DOWN:
+                    player.changespeed(0, -PLAYER_STEP)
+
+        player.move(current_room.room_walls())
+
+        if player.rect.x < -64:
+            current_room_x -= 1
+            player.rect.x = 790
+
+        if player.rect.x > 801:
+            current_room_x += 1
+            player.rect.x = 0
+
+        if player.rect.y < -64:
+            current_room_y -= 1
+            player.rect.y = 790
+
+        if player.rect.y > 801:
+            current_room_y += 1
+            player.rect.y = 0
+
+        current_room = maze[int(current_room_y)][int(current_room_x)]
         screen.fill(BASE_PALLETE[current_room.kind]["BACKGROUND"])
+
+        movingsprites.draw(screen)
         current_room.room_walls().draw(screen)
+
         pygame.display.flip()
 
         clock.tick(60)

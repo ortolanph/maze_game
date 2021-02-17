@@ -13,5 +13,5 @@ BASE_PALLETE = {
         "BACKGROUND": (255, 0, 0),
         "WALLS": (128, 0, 0)
     },
-    "PLAYER": (255, 255, 255)
+    "PLAYER": (255, 255, 0)
 }
