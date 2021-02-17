@@ -2,25 +2,20 @@
 
 A simple game written in Python using the PyGame API.
 
-## NEWS
+## Release Notes
 
  - **2021-16-02**: First release
+ - **2021-17-02**: Version with player interactive
 
 ## Running
 
-For now, it's only possible to see each room of the maze.
-
-The maze is a 4 x 4 grid, so it's possible to issue the command:
+The maze is a 4 x 4 grid, just run the following command:
 
 ```shell
-python main.py <x> <y>
+python main.py
 ```
 
-Where:
- * **x** can be between 0 and 3
- * **y** can be between 0 and 3
-
-The starting room is at (0,1) and the ending room is at (3,3), and it's merely a coincidence.
+For now that's not needed to inform any parameter.
 
 ## Installing Libs
 
@@ -29,3 +24,12 @@ Run the following command:
 ```shell
 pip3 install -r requirements.txt
 ```
+
+## Next Steps
+
+These are the next steps that will be taken:
+
+ * Integration with the [py_maze_api](https://github.com/ortolanph/py_maze_api) created by me
+ * Integration with console joysticks (PS4 and XBOX)
+ * Adding Treasures and Obstacles in the rooms
+ * Adding images to Player, Walls, and Treasures
