@@ -64,6 +64,19 @@ Desired Joysticks:
  * GameCube
  * SNES
 
+### Keyboard Mapping
+
+| Button | Action | Status |
+|:------:|:------:|:------:|
+| Arrows | Movement | Implemented |
+| SPACE | Open Chests | In Development |
+| A | Use Item | In Development |
+| M | Minimap | In Development |
+| S | Save Game | In Development |
+| Q | Choose Item on the left | In Development |
+| W | Choose Item on the right | In Development |
+| P | Pause Game | In Development |
+
 ### PS4 Joystick
 
 | Button | Action | Status |
