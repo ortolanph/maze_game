@@ -1,1 +1,3 @@
 pygame == 2.0.0
+argparse
+git+https://github.com/ortolanph/py_maze_api#egg=py_maze_api
