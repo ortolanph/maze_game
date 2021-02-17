@@ -30,6 +30,10 @@ class Player(pygame.sprite.Sprite):
         self.change_x += x
         self.change_y += y
 
+    def stop(self):
+        self.change_x = 0
+        self.change_y = 0
+
     def move(self, walls):
         """ Find a new position for the player """
 

@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 import argparse
 import sys
+import os
+import json
 
 import pygame
 from maze_api.maze import Maze
@@ -11,6 +13,7 @@ from core.Player import Player
 
 arguments = sys.argv[1:]
 PLAYER_STEP = 10
+joysticks = []
 
 
 def main():
@@ -35,6 +38,13 @@ def main():
         default=5
     )
     parser.add_argument(
+        "--joy-profile",
+        help="Loads a Joystick Profile (ps4, xbox, airflo)",
+        type=str,
+        default="none",
+        choices=["none", "ps4", "xbox", "airflo"]
+    )
+    parser.add_argument(
         "--print-maze",
         help="Prints the Maze",
         type=bool,
@@ -46,12 +56,22 @@ def main():
     my_width = arguments["width"]
     my_height = arguments["height"]
     print_maze = arguments["print_maze"]
+    joy_profile = arguments['joy_profile']
 
     if (my_width < 4 or my_width > 999) or (my_height < 4 or my_height > 999):
         print(f"Invalid witdth ({my_width}) or height ({my_height})")
         exit(-1)
 
     pygame.init()
+
+    if joy_profile is not "none":
+        for i in range(pygame.joystick.get_count()):
+            joysticks.append(pygame.joystick.Joystick(i))
+        for joystick in joysticks:
+            joystick.init()
+
+        with open(os.path.join(f"assets/joysticks/{joy_profile}_keys.json"), "r+") as joystick_definition:
+            joystick_keys = json.load(joystick_definition)
 
     # Create an 800x600 sized screen
     screen = pygame.display.set_mode([800, 800])
@@ -82,6 +102,18 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 done = True
+
+            if event.type == pygame.JOYHATMOTION:
+                if event.value == (-1, 0):
+                    player.changespeed(-PLAYER_STEP, 0)
+                if event.value == (1, 0):
+                    player.changespeed(PLAYER_STEP, 0)
+                if event.value == (0, 1):
+                    player.changespeed(0, -PLAYER_STEP)
+                if event.value == (0, -1):
+                    player.changespeed(0, PLAYER_STEP)
+                if event.value == (0, 0):
+                    player.stop()
 
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
