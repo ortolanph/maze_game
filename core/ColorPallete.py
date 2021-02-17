@@ -15,4 +15,3 @@ BASE_PALLETE = {
     },
     "PLAYER": (255, 255, 0)
 }
-

@@ -1,14 +1,13 @@
 # -*- coding: utf-8 -*-
+import argparse
 import sys
 
 import pygame
-
-import argparse
-
-from ColorPallete import BASE_PALLETE
-from GameRoom import GameRoom
-from Player import Player
 from maze_api.maze import Maze
+
+from core.ColorPallete import BASE_PALLETE
+from core.GameRoom import GameRoom
+from core.Player import Player
 
 arguments = sys.argv[1:]
 PLAYER_STEP = 10
@@ -25,18 +24,32 @@ def main():
     )
     parser.add_argument(
         "--width",
-        help="Width of the maze (max = 999)",
+        help="Width of the maze (min = 4 and max = 999)",
         type=int,
         default=5
     )
     parser.add_argument(
         "--height",
-        help="Height of the maze (max = 999)",
+        help="Height of the maze (min = 4 and max = 999)",
         type=int,
         default=5
     )
+    parser.add_argument(
+        "--print-maze",
+        help="Prints the Maze",
+        type=bool,
+        default=False
+    )
     args = parser.parse_args()
     arguments = vars(args)
+
+    my_width = arguments["width"]
+    my_height = arguments["height"]
+    print_maze = arguments["print_maze"]
+
+    if (my_width < 4 or my_width > 999) or (my_height < 4 or my_height > 999):
+        print(f"Invalid witdth ({my_width}) or height ({my_height})")
+        exit(-1)
 
     pygame.init()
 
@@ -46,8 +59,11 @@ def main():
     # Set the title of the window
     pygame.display.set_caption('Maze')
 
-    maze = Maze(arguments["width"], arguments["height"])
+    maze = Maze(my_width, my_height)
     maze.create_maze()
+
+    if print_maze:
+        maze.print_maze()
 
     player = Player()
     movingsprites = pygame.sprite.Group()

@@ -1,11 +1,12 @@
+from random import randrange
+
 import pygame
 from pygame.sprite import AbstractGroup
-from random import randrange
-from ColorPallete import BASE_PALLETE
+
+from core.ColorPallete import BASE_PALLETE
 
 
 class Player(pygame.sprite.Sprite):
-
     change_x = 0
     change_y = 0
 

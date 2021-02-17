@@ -1,8 +1,8 @@
 import pygame
 
-from ColorPallete import BASE_PALLETE
-from CommonCoordinates import *
-from Wall import Wall
+from core.ColorPallete import BASE_PALLETE
+from core.CommonCoordinates import *
+from core.Wall import Wall
 
 
 class GameRoom:
