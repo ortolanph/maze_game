@@ -2,30 +2,34 @@ import pygame
 
 from core.elements.ColorPallete import BASE_PALLETE
 from core.elements.CommonCoordinates import *
-from core.elements.Wall import Wall
 from core.elements.Obstacles import OBSTACLES
+from core.elements.Wall import Wall
 
 
 class GameRoom:
     kind = ""
     exits = []
     walls = []
+    items = []
     obstacle = 0
 
-    def __init__(self, exits, kind, obstacle):
+    def __init__(self, exits, kind):
         self.walls = pygame.sprite.Group()
+        self.items = pygame.sprite.Group()
         self.exits = exits
         self.kind = kind
+
+    def set_obstacle(self, obstacle):
         self.obstacle = obstacle
-        pass
+
+    def add_item(self, item):
+        self.items.add(item)
 
     def room_walls(self):
         my_coordinates = []
 
         for corner in CORNERS:
             my_coordinates.append(corner)
-
-        my_obstacle = []
 
         if self.obstacle > 0:
             my_obstacle = OBSTACLES[self.obstacle]
@@ -50,3 +54,6 @@ class GameRoom:
             )
 
         return self.walls
+
+    def remove_item(self, item):
+        self.items.remove(item)

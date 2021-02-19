@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 import argparse
-import sys
-import os
 import json
+import os
+import sys
 
 import pygame
 from maze_api.maze import Maze
 
-from core.ColorPallete import BASE_PALLETE
-from core.GameRoom import GameRoom
-from core.Player import Player
+from core.elements.ColorPallete import BASE_PALLETE
+from core.maze.GameMaze import GameMaze
+from core.player.Player import Player
 
 arguments = sys.argv[1:]
 PLAYER_STEP = 10
@@ -53,6 +53,8 @@ def main():
     args = parser.parse_args()
     arguments = vars(args)
 
+    print("Verifying arguments")
+
     my_width = arguments["width"]
     my_height = arguments["height"]
     print_maze = arguments["print_maze"]
@@ -62,8 +64,25 @@ def main():
         print(f"Invalid witdth ({my_width}) or height ({my_height})")
         exit(-1)
 
+    print("Creating Maze")
+
+    generated_maze = Maze(my_width, my_height)
+    generated_maze.create_maze()
+
+    if print_maze:
+        generated_maze.print_maze()
+
+    print("Converting Maze, creating obstacles")
+    maze = GameMaze()
+    for y in range(1, my_height + 1):
+        for x in range(1, my_width + 1):
+            maze.create_room(generated_maze.room_at(x, y))
+
+    print("Initializing game")
+
     pygame.init()
 
+    print("Loading joystick")
     if joy_profile is not "none":
         for i in range(pygame.joystick.get_count()):
             joysticks.append(pygame.joystick.Joystick(i))
@@ -74,27 +93,26 @@ def main():
             joystick_keys = json.load(joystick_definition)
 
     # Create an 800x600 sized screen
+    print("Openning main window")
     screen = pygame.display.set_mode([800, 800])
 
     # Set the title of the window
     pygame.display.set_caption('Maze')
 
-    maze = Maze(my_width, my_height)
-    maze.create_maze()
-
-    if print_maze:
-        maze.print_maze()
-
+    print("Creating Player")
     player = Player()
     movingsprites = pygame.sprite.Group()
     movingsprites.add(player)
 
-    maze_room = maze.start_room()
+    print("Creating starting point")
+    maze_room = generated_maze.start_room()
     current_room_x = maze_room.x
     current_room_y = maze_room.y
-    game_room = GameRoom(maze_room.exits, maze_room.kind)
+    game_room = maze.room_at(current_room_x, current_room_y)
 
     clock = pygame.time.Clock()
+
+    print("Ready!")
 
     done = False
 
@@ -135,33 +153,33 @@ def main():
                 if event.key == pygame.K_DOWN:
                     player.changespeed(0, -PLAYER_STEP)
 
-        player.move(game_room.room_walls())
+        player.move(game_room)
 
         if player.rect.x < -64:
             current_room_x -= 1
             player.rect.x = 790
-            maze_room = maze.room_at(current_room_x, current_room_y)
 
         if player.rect.x > 801:
             current_room_x += 1
             player.rect.x = 0
-            maze_room = maze.room_at(current_room_x, current_room_y)
 
         if player.rect.y < -64:
             current_room_y -= 1
             player.rect.y = 790
-            maze_room = maze.room_at(current_room_x, current_room_y)
 
         if player.rect.y > 801:
             current_room_y += 1
             player.rect.y = 0
-            maze_room = maze.room_at(current_room_x, current_room_y)
 
         screen.fill(BASE_PALLETE[game_room.kind]["BACKGROUND"])
 
         movingsprites.draw(screen)
-        game_room = GameRoom(maze_room.exits, maze_room.kind)
+
+        game_room = maze.room_at(current_room_x, current_room_y)
         game_room.room_walls().draw(screen)
+
+        if len(game_room.items) > 0:
+            game_room.items.draw(screen)
 
         pygame.display.flip()
 
