@@ -14,5 +14,9 @@ BASE_PALLETE = {
         "WALLS": (128, 0, 0)
     },
     "PLAYER": (255, 255, 0),
-    "COIN": (255, 255, 255)
+    "COIN": (255, 255, 255),
+    "HUD": {
+        "BACKGROUND": (0, 0, 0),
+        "FONT_COLOR": (255, 255, 0)
+    }
 }

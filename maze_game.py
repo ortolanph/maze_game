@@ -8,6 +8,7 @@ import pygame
 from maze_api.maze import Maze
 
 from core.elements.ColorPallete import BASE_PALLETE
+from core.elements.HUD import HUD
 from core.maze.GameMaze import GameMaze
 from core.player.Player import Player
 
@@ -92,12 +93,15 @@ def main():
         with open(os.path.join(f"assets/joysticks/{joy_profile}_keys.json"), "r+") as joystick_definition:
             joystick_keys = json.load(joystick_definition)
 
-    # Create an 800x600 sized screen
+    # Create an 800x900 sized screen
     print("Openning main window")
-    screen = pygame.display.set_mode([800, 800])
+    screen = pygame.display.set_mode([800, 900])
 
     # Set the title of the window
     pygame.display.set_caption('Maze')
+
+    print("Creating HUD")
+    hud = HUD()
 
     print("Creating Player")
     player = Player()
@@ -155,23 +159,25 @@ def main():
 
         player.move(game_room)
 
-        if player.rect.x < -64:
+        if player.rect.x < 0:
             current_room_x -= 1
-            player.rect.x = 790
+            player.rect.x = 736
 
-        if player.rect.x > 801:
+        if player.rect.x > 736:
             current_room_x += 1
             player.rect.x = 0
 
-        if player.rect.y < -64:
+        if player.rect.y < 0:
             current_room_y -= 1
-            player.rect.y = 790
+            player.rect.y = 736
 
-        if player.rect.y > 801:
+        if player.rect.y > 736:
             current_room_y += 1
             player.rect.y = 0
 
         screen.fill(BASE_PALLETE[game_room.kind]["BACKGROUND"])
+        screen.blit(hud, (0, 801))
+        hud.update(current_room_x, current_room_y, player.gold)
 
         movingsprites.draw(screen)
 

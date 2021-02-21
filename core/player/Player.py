@@ -60,4 +60,3 @@ class Player(pygame.sprite.Sprite):
             if isinstance(item, Coin):
                 self.gold += item.budget
                 game_room.remove_item(item)
-                print(f"You have {self.gold} golds")
