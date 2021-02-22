@@ -15,10 +15,20 @@ class SkinManager:
             skin = json.load(skin_definition)
 
         skin_folder = skin["folder"]
-        coin_item = skin["skin"]["items"]["coin"]
+        img_skin_folder = f"assets/skins/{skin_folder}/images"
 
+        backgrounds = skin["skin"]["backgrounds"]
+        self.images["background"] = dict()
+        self.images["background"][1] = pygame.image.load(os.path.join(img_skin_folder, backgrounds["normal"]))
+        self.images["background"][2] = pygame.image.load(os.path.join(img_skin_folder, backgrounds["start"]))
+        self.images["background"][3] = pygame.image.load(os.path.join(img_skin_folder, backgrounds["end"]))
+
+        coin_item = skin["skin"]["items"]["coin"]
         self.images["item"] = dict()
-        self.images["item"]["coin"] = pygame.image.load(os.path.join(f"assets/skins/{skin_folder}/images", coin_item))
+        self.images["item"]["coin"] = pygame.image.load(os.path.join(img_skin_folder, coin_item))
+
+    def get_background(self, kind):
+        return self.images["background"][kind]
 
     def get_item(self, item_name):
         return self.images["item"][item_name]

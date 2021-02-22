@@ -185,7 +185,7 @@ def main():
             current_room_y += 1
             player.rect.y = 0
 
-        screen.fill(BASE_PALLETE[game_room.kind]["BACKGROUND"])
+        screen.blit(skin_manager.get_background(game_room.kind), (0, 0))
         screen.blit(hud, (0, 801))
         hud.update(current_room_x, current_room_y, player.gold)
 

@@ -23,11 +23,8 @@ def __gen_basic_info(name, author, mail, folder):
 ## Basic info
     
 **Skin Name**: {name}
-    
 **Author**: {author}
-    
 **e-mail**: {mail}
-    
 **Base folder**: `{folder}`
 """
 
@@ -48,6 +45,34 @@ def __item_list(items):
 """
 
     return items
+
+
+def __list_backgrounds(backgrounds):
+    tag_normal = __generate_image("background_normal", f"images/{backgrounds['normal']}")
+    tag_start = __generate_image("background_start", f"images/{backgrounds['start']}")
+    tag_end = __generate_image("background_end", f"images/{backgrounds['end']}")
+    image_list.append(tag_normal)
+    image_list.append(tag_start)
+    image_list.append(tag_end)
+
+    backgrounds_doc = f"""
+## Backgrounds
+
+**Normal**:
+
+![background_normal][background_normal]
+
+**Start**:
+
+![background_start][background_start]
+
+**End**:
+
+![background_end][background_end]
+
+"""
+
+    return backgrounds_doc
 
 
 def __image_list():
@@ -82,6 +107,7 @@ def main():
         writer.write(__gen_title(skin["name"], skin["description"]))
         writer.write(__gen_basic_info(skin["name"], skin["author"], skin["mail"], skin["folder"]))
         writer.write(__item_list(skin["skin"]["items"]))
+        writer.write(__list_backgrounds(skin["skin"]["backgrounds"]))
         writer.write(__image_list())
 
 

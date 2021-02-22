@@ -8,7 +8,7 @@
     "backgrounds": {
       "normal": "basic-normal.png",
       "start": "basic-start.png",
-      "exit": "basic-end.png"
+      "end": "basic-end.png"
     },
     "items": {
       "coin": "basic-coin.png"
