@@ -1,0 +1,12 @@
+{
+  "name": "Basic Skin",
+  "author": "Paulo Henrique Ortolan",
+  "mail": "paulo.ortolan@gmail.com",
+  "description": "This is the basic skin for the maze game",
+  "folder": "basic",
+  "skin": {
+    "items": {
+      "coin": "basic-coin.png"
+    }
+  }
+}

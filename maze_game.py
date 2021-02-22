@@ -2,7 +2,6 @@
 import argparse
 import json
 import os
-import sys
 
 import pygame
 from maze_api.maze import Maze
@@ -12,7 +11,6 @@ from core.elements.HUD import HUD
 from core.maze.GameMaze import GameMaze
 from core.player.Player import Player
 
-arguments = sys.argv[1:]
 PLAYER_STEP = 10
 joysticks = []
 
