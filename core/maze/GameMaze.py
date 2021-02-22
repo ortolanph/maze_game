@@ -9,6 +9,10 @@ from core.maze.GameRoom import GameRoom
 
 class GameMaze:
     __maze = dict()
+    skin_manager = None
+
+    def __init__(self, skin_manager):
+        self.skin_manager = skin_manager
 
     def create_room(self, room):
         game_room = GameRoom(room.exits, room.kind)
@@ -20,7 +24,8 @@ class GameMaze:
             put_coin = bool(getrandbits(1))
 
             if put_coin:
-                coin = Coin()
+                coin_image = self.skin_manager.get_item("coin")
+                coin = Coin(coin_image)
                 game_room.add_item(coin)
 
         self.__maze[symbol_from(room.x, room.y)] = game_room

@@ -5,6 +5,11 @@
   "description": "This is the basic skin for the maze game",
   "folder": "basic",
   "skin": {
+    "backgrounds": {
+      "normal": "basic-normal.png",
+      "start": "basic-start.png",
+      "exit": "basic-end.png"
+    },
     "items": {
       "coin": "basic-coin.png"
     }

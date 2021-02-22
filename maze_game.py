@@ -8,6 +8,7 @@ from maze_api.maze import Maze
 
 from core.elements.ColorPallete import BASE_PALLETE
 from core.elements.HUD import HUD
+from core.elements.SkinManager import SkinManager
 from core.maze.GameMaze import GameMaze
 from core.player.Player import Player
 
@@ -49,6 +50,13 @@ def main():
         type=bool,
         default=False
     )
+    parser.add_argument(
+        "--skin",
+        help="Selects a Skin",
+        type=str,
+        default="basic"
+    )
+
     args = parser.parse_args()
     arguments = vars(args)
 
@@ -57,11 +65,15 @@ def main():
     my_width = arguments["width"]
     my_height = arguments["height"]
     print_maze = arguments["print_maze"]
-    joy_profile = arguments['joy_profile']
+    joy_profile = arguments["joy_profile"]
+    skin = arguments["skin"]
 
     if (my_width < 4 or my_width > 999) or (my_height < 4 or my_height > 999):
         print(f"Invalid witdth ({my_width}) or height ({my_height})")
         exit(-1)
+
+    print("Loading skin")
+    skin_manager = SkinManager(skin)
 
     print("Creating Maze")
 
@@ -72,7 +84,7 @@ def main():
         generated_maze.print_maze()
 
     print("Converting Maze, creating obstacles")
-    maze = GameMaze()
+    maze = GameMaze(skin_manager)
     for y in range(1, my_height + 1):
         for x in range(1, my_width + 1):
             maze.create_room(generated_maze.room_at(x, y))

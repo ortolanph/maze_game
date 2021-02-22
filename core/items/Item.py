@@ -10,11 +10,10 @@ from core.elements.ColorPallete import BASE_PALLETE
 
 class GameItem(pygame.sprite.Sprite):
 
-    def __init__(self, x, y, width, height, pallete_key, *groups: AbstractGroup):
+    def __init__(self, x, y, loaded_image, *groups: AbstractGroup):
         super().__init__(*groups)
 
-        self.image = pygame.Surface([width, height])
-        self.image.fill(BASE_PALLETE[pallete_key])
+        self.image = loaded_image
 
         self.rect = self.image.get_rect()
         self.rect.x = x
@@ -36,7 +35,7 @@ BUDGETS = [100, 200, 300, 400, 500]
 class Coin(GameItem):
     budget = 0
 
-    def __init__(self, *groups: AbstractGroup):
+    def __init__(self, loaded_image, *groups: AbstractGroup):
         my_budget = choice(BUDGETS)
         self.budget = my_budget
         print(f"self.budget = {self.budget}")
@@ -45,8 +44,4 @@ class Coin(GameItem):
         x = COIN_POSITION[position]["x"]
         y = COIN_POSITION[position]["y"]
 
-        width = 50
-        height = 50
-        pallete_key = "COIN"
-
-        super().__init__(x, y, width, height, pallete_key, *groups)
+        super().__init__(x, y, loaded_image, *groups)
