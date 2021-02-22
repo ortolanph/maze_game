@@ -111,7 +111,7 @@ def main():
     pygame.display.set_caption('Maze')
 
     print("Creating HUD")
-    hud = HUD()
+    hud = HUD(skin_manager.get_hud())
 
     print("Creating Player")
     player = Player()

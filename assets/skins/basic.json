@@ -12,6 +12,13 @@
     },
     "items": {
       "coin": "basic-coin.png"
+    },
+    "hud": {
+      "image": "basic-hud.png",
+      "font": "ka1.ttf",
+      "font-size": "20",
+      "font-color": [255, 255, 0],
+      "background-color": [0, 0, 0]
     }
   }
 }

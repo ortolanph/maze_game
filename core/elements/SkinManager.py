@@ -16,6 +16,7 @@ class SkinManager:
 
         skin_folder = skin["folder"]
         img_skin_folder = f"assets/skins/{skin_folder}/images"
+        fnt_skin_folder = f"assets/skins/{skin_folder}/fonts"
 
         backgrounds = skin["skin"]["backgrounds"]
         self.images["background"] = dict()
@@ -27,8 +28,27 @@ class SkinManager:
         self.images["item"] = dict()
         self.images["item"]["coin"] = pygame.image.load(os.path.join(img_skin_folder, coin_item))
 
+        hud = skin["skin"]["hud"]
+        self.images["hud"] = dict()
+        self.images["hud"]["image"] = pygame.image.load(os.path.join(img_skin_folder, hud["image"]))
+        self.images["hud"]["font"] = f"{fnt_skin_folder}/{hud['font']}"
+        self.images["hud"]["font-size"] = int(hud["font-size"])
+        self.images["hud"]["font-color"] = (
+            int(hud["font-color"][0]),
+            int(hud["font-color"][1]),
+            int(hud["font-color"][2])
+        )
+        self.images["hud"]["background-color"] = (
+            int(hud["background-color"][0]),
+            int(hud["background-color"][1]),
+            int(hud["background-color"][2])
+        )
+
     def get_background(self, kind):
         return self.images["background"][kind]
 
     def get_item(self, item_name):
         return self.images["item"][item_name]
+
+    def get_hud(self):
+        return self.images["hud"]

@@ -75,6 +75,10 @@ def __list_backgrounds(backgrounds):
     return backgrounds_doc
 
 
+def __hud_section(hud):
+    return ""
+
+
 def __image_list():
     all_images = ""
 
@@ -108,6 +112,7 @@ def main():
         writer.write(__gen_basic_info(skin["name"], skin["author"], skin["mail"], skin["folder"]))
         writer.write(__item_list(skin["skin"]["items"]))
         writer.write(__list_backgrounds(skin["skin"]["backgrounds"]))
+        writer.write(__hud_section(skin["skin"]["hud"]))
         writer.write(__image_list())
 
 

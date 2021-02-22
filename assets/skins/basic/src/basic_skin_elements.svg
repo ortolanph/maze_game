@@ -102,9 +102,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.35355339"
-     inkscape:cx="1719.878"
-     inkscape:cy="2727.2422"
+     inkscape:zoom="1"
+     inkscape:cx="1518.7273"
+     inkscape:cy="2503.9755"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -186,7 +186,10 @@
          style="stroke-width:0.26458332">Backgrounds</tspan></text>
     <g
        id="g3185"
-       transform="translate(52.172092,-679.715)">
+       transform="translate(52.172092,-679.715)"
+       inkscape:export-filename="/home/ctw00707/project/personal/maze_game/assets/skins/basic/images/basic-normal.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
       <rect
          y="85.470177"
          x="0.13684665"
@@ -366,7 +369,10 @@
     <g
        id="g3185-3"
        transform="translate(51.843538,-456.57156)"
-       style="fill:#7fff7f;fill-opacity:1">
+       style="fill:#7fff7f;fill-opacity:1"
+       inkscape:export-filename="/home/ctw00707/project/personal/maze_game/assets/skins/basic/images/basic-normal.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
       <rect
          y="85.470177"
          x="0.13684665"
@@ -546,7 +552,10 @@
     <g
        id="g3185-3-6"
        transform="translate(51.726477,-230.51135)"
-       style="fill:#ff7f7f;fill-opacity:1">
+       style="fill:#ff7f7f;fill-opacity:1"
+       inkscape:export-filename="/home/ctw00707/project/personal/maze_game/assets/skins/basic/images/basic-end.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
       <rect
          y="85.470177"
          x="0.13684665"
@@ -1033,86 +1042,7 @@
            height="145.664"
            x="1326.5323"
            y="1311.9794" /></flowRegion><flowPara
-         id="flowPara7626" /></flowRoot>    <g
-       id="g7861">
-      <rect
-         y="-331.39203"
-         x="302.41214"
-         height="25.942432"
-         width="211.15077"
-         id="rect7600"
-         style="fill:#0000ff;fill-opacity:1;stroke:#000000;stroke-width:0.51590008;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-      <rect
-         y="-327.12637"
-         x="317.27719"
-         height="18.717979"
-         width="27.978395"
-         id="rect7628-7"
-         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.12577152;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-      <text
-         id="text7779"
-         y="-320.14066"
-         x="305.46149"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Karmatic Arcade';-inkscape-font-specification:'Karmatic Arcade, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffff00;fill-opacity:1;stroke:none;stroke-width:0.26458332;"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:'Karmatic Arcade';-inkscape-font-specification:'Karmatic Arcade, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332;fill:#ffff00;fill-opacity:1;"
-           y="-320.14066"
-           x="305.46149"
-           id="tspan7777"
-           sodipodi:role="line">X</tspan></text>
-      <text
-         id="text7783"
-         y="-309.22659"
-         x="305.85834"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Karmatic Arcade';-inkscape-font-specification:'Karmatic Arcade, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffff00;fill-opacity:1;stroke:none;stroke-width:0.26458332;"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:'Karmatic Arcade';-inkscape-font-specification:'Karmatic Arcade, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332;fill:#ffff00;fill-opacity:1;"
-           y="-309.22659"
-           x="305.85834"
-           id="tspan7781"
-           sodipodi:role="line">Y</tspan></text>
-      <rect
-         y="-317.88849"
-         x="462.75943"
-         height="9.5186815"
-         width="49.206181"
-         id="rect7628-7-7"
-         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.06465173;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-      <text
-         id="text7802"
-         y="-322.25729"
-         x="469.0401"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Karmatic Arcade';-inkscape-font-specification:'Karmatic Arcade, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffff00;fill-opacity:1;stroke:none;stroke-width:0.26458332;"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:'Karmatic Arcade';-inkscape-font-specification:'Karmatic Arcade, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332;fill:#ffff00;fill-opacity:1;"
-           y="-322.25729"
-           x="469.0401"
-           id="tspan7800"
-           sodipodi:role="line">GOLD</tspan></text>
-      <text
-         id="text7806"
-         y="-320.39264"
-         x="378.66745"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Karmatic Arcade';-inkscape-font-specification:'Karmatic Arcade, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffff00;fill-opacity:1;stroke:none;stroke-width:0.26458332;"
-         xml:space="preserve"><tspan
-           id="tspan7808"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:'Karmatic Arcade';-inkscape-font-specification:'Karmatic Arcade, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332;fill:#ffff00;fill-opacity:1;"
-           y="-320.39264"
-           x="378.66745"
-           sodipodi:role="line">AMAZING</tspan></text>
-      <text
-         id="text7806-0"
-         y="-309.42654"
-         x="391.96228"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Karmatic Arcade';-inkscape-font-specification:'Karmatic Arcade, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffff00;fill-opacity:1;stroke:none;stroke-width:0.26458332;"
-         xml:space="preserve"><tspan
-           id="tspan7808-0"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:'Karmatic Arcade';-inkscape-font-specification:'Karmatic Arcade, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332;fill:#ffff00;fill-opacity:1;"
-           y="-309.42654"
-           x="391.96228"
-           sodipodi:role="line">MAZE</tspan></text>
-    </g>
-    <text
+         id="flowPara7626" /></flowRoot>    <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        x="307.48047"
@@ -1144,5 +1074,94 @@
        height="12.652908"
        x="359.83746"
        y="-211.76012" />
+    <g
+       id="g1407"
+       inkscape:export-filename="/home/ctw00707/project/personal/maze_game/assets/skins/basic/images/basic-hud.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <rect
+         y="-331.39203"
+         x="302.41214"
+         height="25.942432"
+         width="211.15077"
+         id="rect7600"
+         style="fill:#0000ff;fill-opacity:1;stroke:#000000;stroke-width:0.51590008;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         y="-328.44058"
+         x="317.08447"
+         height="8.3186207"
+         width="28.363808"
+         id="rect7628-7"
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.75600272;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         id="text7779"
+         y="-322.52191"
+         x="308.10733"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;line-height:1.25;font-family:'Karmatic Arcade';-inkscape-font-specification:'Karmatic Arcade, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffff00;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;font-family:'Karmatic Arcade';-inkscape-font-specification:'Karmatic Arcade, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ffff00;fill-opacity:1;stroke-width:0.26458332"
+           y="-322.52191"
+           x="308.10733"
+           id="tspan7777"
+           sodipodi:role="line">X</tspan></text>
+      <text
+         id="text7783"
+         y="-312.66617"
+         x="308.50418"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;line-height:1.25;font-family:'Karmatic Arcade';-inkscape-font-specification:'Karmatic Arcade, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffff00;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;font-family:'Karmatic Arcade';-inkscape-font-specification:'Karmatic Arcade, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ffff00;fill-opacity:1;stroke-width:0.26458332"
+           y="-312.66617"
+           x="308.50418"
+           id="tspan7781"
+           sodipodi:role="line">Y</tspan></text>
+      <rect
+         y="-319.00018"
+         x="462.70609"
+         height="7.7732863"
+         width="48.783703"
+         id="rect7628-7-7"
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.95796371;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         id="text7802"
+         y="-323.5802"
+         x="474.33176"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;line-height:1.25;font-family:'Karmatic Arcade';-inkscape-font-specification:'Karmatic Arcade, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffff00;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;font-family:'Karmatic Arcade';-inkscape-font-specification:'Karmatic Arcade, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ffff00;fill-opacity:1;stroke-width:0.26458332"
+           y="-323.5802"
+           x="474.33176"
+           id="tspan7800"
+           sodipodi:role="line">GOLD</tspan></text>
+      <text
+         id="text7806"
+         y="-320.39264"
+         x="378.66745"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Karmatic Arcade';-inkscape-font-specification:'Karmatic Arcade, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffff00;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           id="tspan7808"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:'Karmatic Arcade';-inkscape-font-specification:'Karmatic Arcade, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ffff00;fill-opacity:1;stroke-width:0.26458332"
+           y="-320.39264"
+           x="378.66745"
+           sodipodi:role="line">AMAZING</tspan></text>
+      <text
+         id="text7806-0"
+         y="-309.42654"
+         x="391.96228"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Karmatic Arcade';-inkscape-font-specification:'Karmatic Arcade, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffff00;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           id="tspan7808-0"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:'Karmatic Arcade';-inkscape-font-specification:'Karmatic Arcade, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ffff00;fill-opacity:1;stroke-width:0.26458332"
+           y="-309.42654"
+           x="391.96228"
+           sodipodi:role="line">MAZE</tspan></text>
+      <rect
+         y="-318.40814"
+         x="317.08615"
+         height="8.3152981"
+         width="28.625069"
+         id="rect7628-7-8"
+         style="fill:#000034;fill-opacity:1;stroke:#000000;stroke-width:0.75932491;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
   </g>
 </svg>
