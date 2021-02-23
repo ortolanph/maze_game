@@ -1,0 +1,8 @@
+ self.images["obstacles"]["rock-large"] = pygame.image.load(
+            os.path.join(img_skin_folder, obstacles["rock-large"]))
+        self.images["obstacles"]["rock-medium"] = pygame.image.load(os.path.join(img_skin_folder,
+                                                                                 obstacles["rock-medium"]))
+        self.images["obstacles"]["rock-small"] = pygame.image.load(
+            os.path.join(img_skin_folder, obstacles["rock-small"]))
+        self.images["obstacles"]["column"] = pygame.image.load(os.path.join(img_skin_folder, obstacles["column"]))
+        self.images["obstacles"]["cross-arm"] = pygame.image.load(os.path.join(img_skin_folder, obstacles["cross-arm"]))

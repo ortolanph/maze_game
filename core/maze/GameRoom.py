@@ -2,7 +2,6 @@ import pygame
 
 from core.elements.ColorPallete import BASE_PALLETE
 from core.elements.CommonCoordinates import *
-from core.elements.Obstacles import OBSTACLES
 from core.elements.Wall import Wall
 
 
@@ -11,7 +10,6 @@ class GameRoom:
     exits = []
     walls = []
     items = []
-    obstacle = 0
 
     def __init__(self, exits, kind):
         self.walls = pygame.sprite.Group()
@@ -19,22 +17,15 @@ class GameRoom:
         self.exits = exits
         self.kind = kind
 
-    def set_obstacle(self, obstacle):
-        self.obstacle = obstacle
-
-    def add_item(self, item):
-        self.items.add(item)
+    def add_obstacle(self, sprite_list):
+        for sprite in sprite_list:
+            self.walls.add(sprite)
 
     def room_walls(self):
         my_coordinates = []
 
         for corner in CORNERS:
             my_coordinates.append(corner)
-
-        if self.obstacle > 0:
-            my_obstacle = OBSTACLES[self.obstacle]
-            for points in my_obstacle:
-                my_coordinates.append(points)
 
         for my_exit in [1, 2, 3, 4]:
             if my_exit in self.exits:
@@ -54,6 +45,9 @@ class GameRoom:
             )
 
         return self.walls
+
+    def add_item(self, item):
+        self.items.add(item)
 
     def remove_item(self, item):
         self.items.remove(item)

@@ -1,5 +1,4 @@
 import pygame
-from core.elements.ColorPallete import BASE_PALLETE
 
 
 class HUD(pygame.Surface):

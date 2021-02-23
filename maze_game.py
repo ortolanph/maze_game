@@ -137,35 +137,35 @@ def main():
 
             if event.type == pygame.JOYHATMOTION:
                 if event.value == (-1, 0):
-                    player.changespeed(-PLAYER_STEP, 0)
+                    player.change_speed(-PLAYER_STEP, 0)
                 if event.value == (1, 0):
-                    player.changespeed(PLAYER_STEP, 0)
+                    player.change_speed(PLAYER_STEP, 0)
                 if event.value == (0, 1):
-                    player.changespeed(0, -PLAYER_STEP)
+                    player.change_speed(0, -PLAYER_STEP)
                 if event.value == (0, -1):
-                    player.changespeed(0, PLAYER_STEP)
+                    player.change_speed(0, PLAYER_STEP)
                 if event.value == (0, 0):
                     player.stop()
 
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
-                    player.changespeed(-PLAYER_STEP, 0)
+                    player.change_speed(-PLAYER_STEP, 0)
                 if event.key == pygame.K_RIGHT:
-                    player.changespeed(PLAYER_STEP, 0)
+                    player.change_speed(PLAYER_STEP, 0)
                 if event.key == pygame.K_UP:
-                    player.changespeed(0, -PLAYER_STEP)
+                    player.change_speed(0, -PLAYER_STEP)
                 if event.key == pygame.K_DOWN:
-                    player.changespeed(0, PLAYER_STEP)
+                    player.change_speed(0, PLAYER_STEP)
 
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_LEFT:
-                    player.changespeed(PLAYER_STEP, 0)
+                    player.change_speed(PLAYER_STEP, 0)
                 if event.key == pygame.K_RIGHT:
-                    player.changespeed(-PLAYER_STEP, 0)
+                    player.change_speed(-PLAYER_STEP, 0)
                 if event.key == pygame.K_UP:
-                    player.changespeed(0, PLAYER_STEP)
+                    player.change_speed(0, PLAYER_STEP)
                 if event.key == pygame.K_DOWN:
-                    player.changespeed(0, -PLAYER_STEP)
+                    player.change_speed(0, -PLAYER_STEP)
 
         player.move(game_room)
 

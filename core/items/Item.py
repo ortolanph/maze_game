@@ -5,7 +5,7 @@ from pygame.sprite import AbstractGroup
 
 from core.elements.ColorPallete import BASE_PALLETE
 
-""" Generic Item """
+""" Abstract Item """
 
 
 class GameItem(pygame.sprite.Sprite):
@@ -38,7 +38,6 @@ class Coin(GameItem):
     def __init__(self, loaded_image, *groups: AbstractGroup):
         my_budget = choice(BUDGETS)
         self.budget = my_budget
-        print(f"self.budget = {self.budget}")
 
         position = randrange(0, 4)
         x = COIN_POSITION[position]["x"]

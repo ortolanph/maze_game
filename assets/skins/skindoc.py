@@ -23,9 +23,13 @@ def __gen_basic_info(name, author, mail, folder):
 ## Basic info
     
 **Skin Name**: {name}
+
 **Author**: {author}
+
 **e-mail**: {mail}
+
 **Base folder**: `{folder}`
+
 """
 
     return basic_info
@@ -76,7 +80,25 @@ def __list_backgrounds(backgrounds):
 
 
 def __hud_section(hud):
-    return ""
+    tag_hud = __generate_image("hud", f"images/{hud['image']}")
+    image_list.append(tag_hud)
+
+    hud_doc = f"""
+## HUD
+
+**Image**:
+
+![hud][hud]
+
+| Property | Value |
+|:--------:|:-----:|
+| font | {hud['font']} |
+| font-size | {hud['font-size']} |
+| font-color | {hud['font-color']} |
+| background-color | {hud['background-color']} |
+
+"""
+    return hud_doc
 
 
 def __image_list():

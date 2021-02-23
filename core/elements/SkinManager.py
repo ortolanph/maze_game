@@ -44,6 +44,10 @@ class SkinManager:
             int(hud["background-color"][2])
         )
 
+        obstacles = skin["skin"]["obstacles"]
+        self.images["obstacles"] = dict()
+        self.images["obstacles"]["big-rock"] = pygame.image.load(os.path.join(img_skin_folder, obstacles["big-rock"]))
+
     def get_background(self, kind):
         return self.images["background"][kind]
 
@@ -52,3 +56,6 @@ class SkinManager:
 
     def get_hud(self):
         return self.images["hud"]
+
+    def get_obstacles(self):
+        return self.images["obstacles"]

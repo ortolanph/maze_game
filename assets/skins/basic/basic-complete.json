@@ -16,27 +16,31 @@
       "exit": "basic-end.png"
     },
     "obstacles": {
-      "rock": "basic-rock.png",
-      "rocks": "basic-rocks.png",
-      "columns": "basic-columns.png",
-      "cross": {
-        "middle": "basic-cross-middle.png",
-        "arm": "basic-cross-arm.png"
-      },
-      "small_rocks": {
-        "small": "basic-small-rock-s.png",
-        "medium": "basic-small-rock-m.png"
-      },
-      "items": {
-        "coin": "basic-coin.png"
-      },
-      "hud": {
-        "image": "basic-hud",
-        "font": "fonts/ka1.ttf",
-        "font-size": "12",
-        "font-color": [255, 255, 0],
-        "background-color": [0, 0, 0]
-      }
+      "big-rock": "basic-rock-xl.png",
+      "rock-large": "basic-rocks-x.png",
+      "rock-medium": "basic-rock-m.png",
+      "rock-small": "basic-rock-s.png",
+      "column": "basic-column.png",
+      "cross-arm": "basic-cross-arm.png"
+    },
+    "items": {
+      "coin": "basic-coin.png"
+    },
+    "hud": {
+      "image": "basic-hud",
+      "font": "fonts/ka1.ttf",
+      "font-size": "12",
+      "font-color": [
+        255,
+        255,
+        0
+      ],
+      "background-color": [
+        0,
+        0,
+        0
+      ]
     }
   }
+}
 }
