@@ -4,10 +4,10 @@ from pygame.sprite import AbstractGroup
 ROCK = (200, 200)
 
 COLUMNS = [
-    [150, 150],
-    [450, 150],
-    [150, 450],
-    [450, 450],
+    (150, 150),
+    (450, 150),
+    (150, 450),
+    (450, 450),
 ]
 
 ROCKS = [
@@ -18,17 +18,15 @@ ROCKS = [
 ]
 
 SMALL_ROCKS = [
-    [150, 150, 150, 150],
-    [350, 200, 50, 50],
-    [500, 150, 150, 150],
-
-    [200, 400, 50, 50],
-    [375, 375, 50, 50],
-    [550, 350, 50, 50],
-
-    [150, 500, 150, 150],
-    [400, 550, 50, 50],
-    [500, 500, 150, 150],
+    (150, 150, 0),
+    (350, 200, 1),
+    (500, 150, 0),
+    (200, 400, 1),
+    (375, 375, 1),
+    (550, 350, 1),
+    (150, 500, 0),
+    (400, 550, 1),
+    (500, 500, 0),
 ]
 
 CROSS = [
@@ -47,7 +45,7 @@ OBSTACLES = {
     5: CROSS,
 }
 
-OBSTACLES_ARRAY = [0, 0, 1, 1, 1, 1, 1, 1]
+OBSTACLES_ARRAY = [0, 0, 0, 0, 0, 1, 2, 1, 4, 4]
 OLD_OBSTACLES_ARRAY = [0, 0, 0, 0, 0, 1, 2, 3, 4, 5]
 
 
@@ -76,6 +74,10 @@ class ObstacleFactory:
     def _get_obstacle_images(self, obstacle_id):
         if obstacle_id == 1:
             return self._get_rock()
+        if obstacle_id == 2:
+            return self.get_columns()
+        if obstacle_id == 4:
+            return self.get_small_rocks()
 
     def _get_rock(self):
         my_obstacle = pygame.sprite.Group()
@@ -83,5 +85,29 @@ class ObstacleFactory:
         obstacle_image = self.obstacles_source_images["big-rock"]
         obstacle_rock = Obstacle(ROCK[0], ROCK[1], obstacle_image)
         my_obstacle.add(obstacle_rock)
+
+        return my_obstacle
+
+    def get_columns(self):
+        my_obstacle = pygame.sprite.Group()
+
+        obstacle_image = self.obstacles_source_images["column"]
+        for column in COLUMNS:
+            obstacle_column = Obstacle(column[0], column[1], obstacle_image)
+            my_obstacle.add(obstacle_column)
+
+        return my_obstacle
+
+    def get_small_rocks(self):
+        my_obstacle = pygame.sprite.Group()
+
+        image_array = [
+            self.obstacles_source_images["rock-medium"],
+            self.obstacles_source_images["rock-small"]
+        ]
+
+        for rock in SMALL_ROCKS:
+            obstacle_column = Obstacle(rock[0], rock[1], image_array[rock[2]])
+            my_obstacle.add(obstacle_column)
 
         return my_obstacle

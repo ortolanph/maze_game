@@ -47,6 +47,11 @@ class SkinManager:
         obstacles = skin["skin"]["obstacles"]
         self.images["obstacles"] = dict()
         self.images["obstacles"]["big-rock"] = pygame.image.load(os.path.join(img_skin_folder, obstacles["big-rock"]))
+        self.images["obstacles"]["column"] = pygame.image.load(os.path.join(img_skin_folder, obstacles["column"]))
+        self.images["obstacles"]["rock-medium"] = \
+            pygame.image.load(os.path.join(img_skin_folder, obstacles["rock-medium"]))
+        self.images["obstacles"]["rock-small"] = \
+            pygame.image.load(os.path.join(img_skin_folder, obstacles["rock-small"]))
 
     def get_background(self, kind):
         return self.images["background"][kind]
