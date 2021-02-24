@@ -11,10 +11,10 @@ COLUMNS = [
 ]
 
 ROCKS = [
-    [150, 150, 150, 250],
-    [400, 150, 250, 150],
-    [150, 500, 250, 150],
-    [500, 400, 150, 250],
+    (150, 150, "rocks-portrait"),
+    (400, 150, "rocks-landscape"),
+    (150, 500, "rocks-landscape"),
+    (500, 400, "rocks-portrait"),
 ]
 
 SMALL_ROCKS = [
@@ -37,15 +37,7 @@ CROSS = [
     (300, 300, "cross-middle"),
 ]
 
-OBSTACLES = {
-    1: ROCK,
-    2: COLUMNS,
-    3: ROCKS,
-    4: SMALL_ROCKS,
-    5: CROSS,
-}
-
-OBSTACLES_ARRAY = [0, 0, 0, 0, 0, 1, 2, 1, 4, 5]
+OBSTACLES_ARRAY = [0, 0, 0, 0, 0, 1, 2, 3, 4, 5]
 
 
 class Obstacle(pygame.sprite.Sprite):
@@ -72,15 +64,17 @@ class ObstacleFactory:
 
     def _get_obstacle_images(self, obstacle_id):
         if obstacle_id == 1:
-            return self._get_rock()
+            return self.__get_rock()
         if obstacle_id == 2:
-            return self.get_columns()
+            return self.__get_columns()
+        if obstacle_id == 3:
+            return self.__get_rocks()
         if obstacle_id == 4:
-            return self.get_small_rocks()
+            return self.__get_small_rocks()
         if obstacle_id == 5:
-            return self.get_cross()
+            return self.__get_cross()
 
-    def _get_rock(self):
+    def __get_rock(self):
         my_obstacle = pygame.sprite.Group()
 
         obstacle_image = self.obstacles_source_images["big-rock"]
@@ -89,7 +83,7 @@ class ObstacleFactory:
 
         return my_obstacle
 
-    def get_columns(self):
+    def __get_columns(self):
         my_obstacle = pygame.sprite.Group()
 
         obstacle_image = self.obstacles_source_images["column"]
@@ -99,7 +93,7 @@ class ObstacleFactory:
 
         return my_obstacle
 
-    def get_small_rocks(self):
+    def __get_small_rocks(self):
         my_obstacle = pygame.sprite.Group()
 
         image_array = [
@@ -113,11 +107,20 @@ class ObstacleFactory:
 
         return my_obstacle
 
-    def get_cross(self):
+    def __get_cross(self):
         my_obstacle = pygame.sprite.Group()
 
         for cross in CROSS:
             obstacle_cross = Obstacle(cross[0], cross[1], self.obstacles_source_images[cross[2]])
             my_obstacle.add(obstacle_cross)
+
+        return my_obstacle
+
+    def __get_rocks(self):
+        my_obstacle = pygame.sprite.Group()
+
+        for rock in ROCKS:
+            obstacle_rock = Obstacle(rock[0], rock[1], self.obstacles_source_images[rock[2]])
+            my_obstacle.add(obstacle_rock)
 
         return my_obstacle

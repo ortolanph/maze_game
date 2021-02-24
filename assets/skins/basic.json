@@ -30,6 +30,7 @@
     },
     "obstacles": {
       "big-rock": "basic-rock-xl.png",
+      "rock-large": "basic-rocks-x.png",
       "rock-medium": "basic-rock-m.png",
       "rock-small": "basic-rock-s.png",
       "column": "basic-column.png",

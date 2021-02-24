@@ -102,9 +102,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.70710678"
-     inkscape:cx="1608.0977"
-     inkscape:cy="2975.4016"
+     inkscape:zoom="1"
+     inkscape:cx="1531.6863"
+     inkscape:cy="2473.6184"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -794,7 +794,10 @@
     </g>
     <g
        id="g7141-0"
-       transform="matrix(0.3742075,0,0,0.62535403,183.50443,-75.682896)">
+       transform="matrix(0.36381263,0,0,0.62535606,186.53613,-75.681825)"
+       inkscape:export-filename="/home/ctw00707/project/personal/maze_game/assets/skins/basic/images/basic-rocks-x.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
       <path
          sodipodi:nodetypes="cccscsssccsccsccscscsccsscscssscccccccccccsccccccccccscscccssscccscscscsccccscsscssscccccsccccscsccssscccsccssscccccccccccscccssccscscccscccccccscccccssccsccccccccccssccssccsssscsccccssssscsccccccscccscccsccccscscccscccccsccscccssssssccscsccccccsccssscsccsccssscsccscssscccscsssccsscssscscscccccccsccscsccssscccscssccccscssscccccscscccccccccscccccssccscccccsccscccccccccccccccccsscccsccccccsccssssscccccccccssscccscsccccscscsssssccsscscsccccccsssssssccccscsscccscccscssccsccsssscccsccsssccsscsscsscssscscccccccccccccsssscccscsscccscsccccssscccccccccsccscssccccsccsssscsscscsscsccccccscccccccccsssscscsccsccsccssccscccccscsccccccccsccccccssccscsccscscscsccscssccsccsccccccccssscscssccccscscscscssccsccscccssccscsscssssccscccscccccsscscscccccsccccccccccsscccssccscscccccsccsccscssccsccscscccccscccccscscccccssccsscccsccccccccccsccccssccscsccccccscsccccccccccccccccscsscscsccccccccccccccccccccccccccccccccsccsccsscsccccsccccccccccscccccsscsccccssccscsscsscscsccccscsssccsssscc"
          inkscape:connector-curvature="0"

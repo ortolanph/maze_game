@@ -63,6 +63,11 @@ class SkinManager:
         self.images["obstacles"]["cross-arm-south"] = pygame.transform.flip(cross_arm, False, True)
         self.images["obstacles"]["cross-arm-west"] = pygame.transform.rotate(cross_arm, 90)
 
+        large_rock = pygame.image.load(os.path.join(img_skin_folder, obstacles["rock-large"]))
+
+        self.images["obstacles"]["rocks-portrait"] = large_rock
+        self.images["obstacles"]["rocks-landscape"] = pygame.transform.rotate(large_rock, -90)
+
     def get_background(self, kind):
         return self.images["background"][kind]
 
