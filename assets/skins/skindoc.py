@@ -101,6 +101,52 @@ def __hud_section(hud):
     return hud_doc
 
 
+def __obstacle_section(obstacles):
+    tag_big_rock = __generate_image("big-rock", f"images/{obstacles['big-rock']}")
+    tag_rock_large = __generate_image("rock-large", f"images/{obstacles['rock-large']}")
+    tag_rock_medium = __generate_image("rock-medium", f"images/{obstacles['rock-medium']}")
+    tag_rock_small = __generate_image("rock-small", f"images/{obstacles['rock-small']}")
+    tag_column = __generate_image("column", f"images/{obstacles['column']}")
+    tag_cross_arm = __generate_image("cross-arm", f"images/{obstacles['cross-arm']}")
+    image_list.append(tag_big_rock)
+    image_list.append(tag_rock_large)
+    image_list.append(tag_rock_medium)
+    image_list.append(tag_rock_small)
+    image_list.append(tag_column)
+    image_list.append(tag_cross_arm)
+
+    obstacles_doc = f"""
+## Obstacles
+
+**Rock**:
+
+![big-rock][big-rock]
+
+**Large Rock**:
+
+![rock-large][rock-large]
+
+**Medium Rock**:
+
+![rock-medium][rock-medium]
+
+**Small Rock**:
+
+![rock-small][rock-small]
+
+**Column**:
+
+![column][column]
+
+**Cross Arm**:
+
+![cross-arm][cross-arm]
+
+"""
+
+    return obstacles_doc
+
+
 def __image_list():
     all_images = ""
 
@@ -135,6 +181,7 @@ def main():
         writer.write(__item_list(skin["skin"]["items"]))
         writer.write(__list_backgrounds(skin["skin"]["backgrounds"]))
         writer.write(__hud_section(skin["skin"]["hud"]))
+        writer.write(__obstacle_section(skin["skin"]["obstacles"]))
         writer.write(__image_list())
 
 
