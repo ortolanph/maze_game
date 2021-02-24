@@ -32,7 +32,8 @@
       "big-rock": "basic-rock-xl.png",
       "rock-medium": "basic-rock-m.png",
       "rock-small": "basic-rock-s.png",
-      "column": "basic-column.png"
+      "column": "basic-column.png",
+      "cross-arm": "basic-cross-arm.png"
     }
   }
 }
