@@ -53,7 +53,6 @@ class Obstacle(pygame.sprite.Sprite):
 
 
 class ObstacleFactory:
-
     obstacles_source_images = dict()
 
     def __init__(self, obstacle_images):

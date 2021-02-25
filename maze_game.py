@@ -6,7 +6,6 @@ import os
 import pygame
 from maze_api.maze import Maze
 
-from core.elements.ColorPallete import BASE_PALLETE
 from core.elements.HUD import HUD
 from core.elements.SkinManager import SkinManager
 from core.maze.GameMaze import GameMaze

@@ -21,9 +21,9 @@ class GameMaze:
 
         if room.kind == 1:
             random_obstacle = randrange(0, len(OBSTACLES_ARRAY))
-            choosen_obstacle = OBSTACLES_ARRAY[random_obstacle]
-            if choosen_obstacle > 0:
-                obstacle = self.obstacle_factory.produce_obstacle(choosen_obstacle)
+            chosen_obstacle = OBSTACLES_ARRAY[random_obstacle]
+            if chosen_obstacle > 0:
+                obstacle = self.obstacle_factory.produce_obstacle(chosen_obstacle)
                 game_room.add_obstacle(obstacle)
 
             put_coin = bool(getrandbits(1))

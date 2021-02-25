@@ -3,8 +3,6 @@ from random import randrange, choice
 import pygame
 from pygame.sprite import AbstractGroup
 
-from core.elements.ColorPallete import BASE_PALLETE
-
 """ Abstract Item """
 
 

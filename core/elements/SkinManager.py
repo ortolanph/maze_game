@@ -5,77 +5,111 @@ import pygame
 
 
 class SkinManager:
-    images = dict()
+    __images = dict()
+    __img_skin_folder = ""
+    __fnt_skin_folder = ""
 
     def __skin_info(self, name, author, mail, description):
-        pass
+        skin_info = f"""
+Skin {name}
+Author.......: {author}
+e-Mail.......: {mail}
+Description..: {description}
+"""
+        print(skin_info)
 
     def __init__(self, skin_name):
         with open(os.path.join(f"assets/skins/{skin_name}.json"), "r+") as skin_definition:
             skin = json.load(skin_definition)
 
+        self.__skin_info(skin["name"], skin["author"], skin["mail"], skin["description"])
+
         skin_folder = skin["folder"]
-        img_skin_folder = f"assets/skins/{skin_folder}/images"
-        fnt_skin_folder = f"assets/skins/{skin_folder}/fonts"
+        self.__img_skin_folder = f"assets/skins/{skin_folder}/images"
+        self.__fnt_skin_folder = f"assets/skins/{skin_folder}/fonts"
 
         backgrounds = skin["skin"]["backgrounds"]
-        self.images["background"] = dict()
-        self.images["background"][1] = pygame.image.load(os.path.join(img_skin_folder, backgrounds["normal"]))
-        self.images["background"][2] = pygame.image.load(os.path.join(img_skin_folder, backgrounds["start"]))
-        self.images["background"][3] = pygame.image.load(os.path.join(img_skin_folder, backgrounds["end"]))
+        self.__load_backgrounds(backgrounds)
 
-        coin_item = skin["skin"]["items"]["coin"]
-        self.images["item"] = dict()
-        self.images["item"]["coin"] = pygame.image.load(os.path.join(img_skin_folder, coin_item))
+        items = skin["skin"]["items"]
+        self.__load_items(items)
 
         hud = skin["skin"]["hud"]
-        self.images["hud"] = dict()
-        self.images["hud"]["image"] = pygame.image.load(os.path.join(img_skin_folder, hud["image"]))
-        self.images["hud"]["font"] = f"{fnt_skin_folder}/{hud['font']}"
-        self.images["hud"]["font-size"] = int(hud["font-size"])
-        self.images["hud"]["font-color"] = (
+        self.__load_hud(hud)
+
+        obstacles = skin["skin"]["obstacles"]
+        self.__load_obstacles(obstacles)
+
+        walls = skin["skin"]["walls"]
+        self.__load_walls(walls)
+
+    def __load_backgrounds(self, backgrounds):
+        self.__images["background"] = dict()
+        self.__images["background"][1] = pygame.image.load(os.path.join(self.__img_skin_folder, backgrounds["normal"]))
+        self.__images["background"][2] = pygame.image.load(os.path.join(self.__img_skin_folder, backgrounds["start"]))
+        self.__images["background"][3] = pygame.image.load(os.path.join(self.__img_skin_folder, backgrounds["end"]))
+
+    def get_background(self, kind):
+        return self.__images["background"][kind]
+
+    def __load_items(self, items):
+        self.__images["item"] = dict()
+        self.__images["item"]["coin"] = pygame.image.load(os.path.join(self.__img_skin_folder, items["coin"]))
+
+    def get_item(self, item_name):
+        return self.__images["item"][item_name]
+
+    def __load_hud(self, hud):
+        self.__images["hud"] = dict()
+        self.__images["hud"]["image"] = pygame.image.load(os.path.join(self.__img_skin_folder, hud["image"]))
+        self.__images["hud"]["font"] = f"{self.__fnt_skin_folder}/{hud['font']}"
+        self.__images["hud"]["font-size"] = int(hud["font-size"])
+        self.__images["hud"]["font-color"] = (
             int(hud["font-color"][0]),
             int(hud["font-color"][1]),
             int(hud["font-color"][2])
         )
-        self.images["hud"]["background-color"] = (
+        self.__images["hud"]["background-color"] = (
             int(hud["background-color"][0]),
             int(hud["background-color"][1]),
             int(hud["background-color"][2])
         )
 
-        obstacles = skin["skin"]["obstacles"]
-        self.images["obstacles"] = dict()
-        self.images["obstacles"]["big-rock"] = pygame.image.load(os.path.join(img_skin_folder, obstacles["big-rock"]))
-        self.images["obstacles"]["column"] = pygame.image.load(os.path.join(img_skin_folder, obstacles["column"]))
-        self.images["obstacles"]["rock-medium"] = \
-            pygame.image.load(os.path.join(img_skin_folder, obstacles["rock-medium"]))
-        self.images["obstacles"]["rock-small"] = \
-            pygame.image.load(os.path.join(img_skin_folder, obstacles["rock-small"]))
-
-        self.images["obstacles"]["cross-middle"] = \
-            pygame.image.load(os.path.join(img_skin_folder, obstacles["column"]))
-
-        cross_arm = pygame.image.load(os.path.join(img_skin_folder, obstacles["cross-arm"]))
-
-        self.images["obstacles"]["cross-arm-north"] = cross_arm
-        self.images["obstacles"]["cross-arm-east"] = pygame.transform.rotate(cross_arm, -90)
-        self.images["obstacles"]["cross-arm-south"] = pygame.transform.flip(cross_arm, False, True)
-        self.images["obstacles"]["cross-arm-west"] = pygame.transform.rotate(cross_arm, 90)
-
-        large_rock = pygame.image.load(os.path.join(img_skin_folder, obstacles["rock-large"]))
-
-        self.images["obstacles"]["rocks-portrait"] = large_rock
-        self.images["obstacles"]["rocks-landscape"] = pygame.transform.rotate(large_rock, -90)
-
-    def get_background(self, kind):
-        return self.images["background"][kind]
-
-    def get_item(self, item_name):
-        return self.images["item"][item_name]
-
     def get_hud(self):
-        return self.images["hud"]
+        return self.__images["hud"]
+
+    def __load_obstacles(self, obstacles):
+        self.__images["obstacles"] = dict()
+        self.__images["obstacles"]["big-rock"] = \
+            pygame.image.load(os.path.join(self.__img_skin_folder, obstacles["big-rock"]))
+        self.__images["obstacles"]["column"] = \
+            pygame.image.load(os.path.join(self.__img_skin_folder, obstacles["column"]))
+        self.__images["obstacles"]["rock-medium"] = \
+            pygame.image.load(os.path.join(self.__img_skin_folder, obstacles["rock-medium"]))
+        self.__images["obstacles"]["rock-small"] = \
+            pygame.image.load(os.path.join(self.__img_skin_folder, obstacles["rock-small"]))
+
+        self.__images["obstacles"]["cross-middle"] = \
+            pygame.image.load(os.path.join(self.__img_skin_folder, obstacles["column"]))
+
+        cross_arm = pygame.image.load(
+            os.path.join(self.__img_skin_folder, obstacles["cross-arm"]))
+
+        self.__images["obstacles"]["cross-arm-north"] = cross_arm
+        self.__images["obstacles"]["cross-arm-east"] = pygame.transform.rotate(cross_arm, -90)
+        self.__images["obstacles"]["cross-arm-south"] = pygame.transform.flip(cross_arm, False, True)
+        self.__images["obstacles"]["cross-arm-west"] = pygame.transform.rotate(cross_arm, 90)
+
+        large_rock = pygame.image.load(os.path.join(self.__img_skin_folder, obstacles["rock-large"]))
+
+        self.__images["obstacles"]["rocks-portrait"] = large_rock
+        self.__images["obstacles"]["rocks-landscape"] = pygame.transform.rotate(large_rock, -90)
 
     def get_obstacles(self):
-        return self.images["obstacles"]
+        return self.__images["obstacles"]
+
+    def __load_walls(self, walls):
+        pass
+
+    def get_walls(self):
+        pass

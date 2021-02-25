@@ -2,7 +2,6 @@ import pygame
 
 
 class HUD(pygame.Surface):
-
     hud_font = None
     hud_skin = dict()
 
@@ -23,11 +22,11 @@ class HUD(pygame.Surface):
         label_y_coordinate = pygame.font.Font.render(self.hud_font, my_y, True, self.hud_skin["font-color"])
         label_gold_value = pygame.font.Font.render(self.hud_font, my_gold, True, self.hud_skin["font-color"])
 
-        erase_x = pygame.Surface((100, 25))
+        erase_x = pygame.Surface((60, 25))
         erase_x.fill(self.hud_skin["background-color"])
-        erase_y = pygame.Surface((100, 25))
+        erase_y = pygame.Surface((60, 25))
         erase_y.fill(self.hud_skin["background-color"])
-        erase_gold = pygame.Surface((180, 25))
+        erase_gold = pygame.Surface((170, 25))
         erase_gold.fill(self.hud_skin["background-color"])
 
         self.blit(erase_x, (60, 15))
