@@ -6,20 +6,20 @@ image_list = []
 
 
 def __generate_image(key, file):
-    return f"[{key}]: {file}"
+    return f"[img_{key}]: {file}"
 
 
-def __gen_title(title, description):
-    title = f"""# {title}
+def __title_section(title_doc, description):
+    title_doc = f"""# {title_doc}
 
 {description}
 """
 
-    return title
+    return title_doc
 
 
-def __gen_basic_info(name, author, mail, folder):
-    basic_info = f"""
+def __basic_info_section(name, author, mail, folder):
+    basic_info_doc = f"""
 ## Basic info
     
 **Skin Name**: {name}
@@ -32,26 +32,26 @@ def __gen_basic_info(name, author, mail, folder):
 
 """
 
-    return basic_info
+    return basic_info_doc
 
 
-def __item_list(items):
-    image = __generate_image("coin", f"images/{items['coin']}")
-    image_list.append(image)
+def __item_section(items_doc):
+    tag_coin = __generate_image("coin", f"images/{items_doc['coin']}")
+    image_list.append(tag_coin)
 
-    items = f"""
+    items_doc = f"""
 ## Items
 
 **Coin**:
 
-![Coin][coin]
+![Coin][img_coin]
 
 """
 
-    return items
+    return items_doc
 
 
-def __list_backgrounds(backgrounds):
+def __backgrounds_section(backgrounds):
     tag_normal = __generate_image("background_normal", f"images/{backgrounds['normal']}")
     tag_start = __generate_image("background_start", f"images/{backgrounds['start']}")
     tag_end = __generate_image("background_end", f"images/{backgrounds['end']}")
@@ -64,15 +64,15 @@ def __list_backgrounds(backgrounds):
 
 **Normal**:
 
-![background_normal][background_normal]
+![Normal Background][img_background_normal]
 
 **Start**:
 
-![background_start][background_start]
+![Start Background][img_background_start]
 
 **End**:
 
-![background_end][background_end]
+![Ending Background][img_background_end]
 
 """
 
@@ -88,7 +88,7 @@ def __hud_section(hud):
 
 **Image**:
 
-![hud][hud]
+![HUD][img_hud]
 
 | Property | Value |
 |:--------:|:-----:|
@@ -102,12 +102,12 @@ def __hud_section(hud):
 
 
 def __obstacle_section(obstacles):
-    tag_big_rock = __generate_image("big-rock", f"images/{obstacles['big-rock']}")
-    tag_rock_large = __generate_image("rock-large", f"images/{obstacles['rock-large']}")
-    tag_rock_medium = __generate_image("rock-medium", f"images/{obstacles['rock-medium']}")
-    tag_rock_small = __generate_image("rock-small", f"images/{obstacles['rock-small']}")
+    tag_big_rock = __generate_image("big_rock", f"images/{obstacles['big-rock']}")
+    tag_rock_large = __generate_image("rock_large", f"images/{obstacles['rock-large']}")
+    tag_rock_medium = __generate_image("rock_medium", f"images/{obstacles['rock-medium']}")
+    tag_rock_small = __generate_image("rock_small", f"images/{obstacles['rock-small']}")
     tag_column = __generate_image("column", f"images/{obstacles['column']}")
-    tag_cross_arm = __generate_image("cross-arm", f"images/{obstacles['cross-arm']}")
+    tag_cross_arm = __generate_image("cross_arm", f"images/{obstacles['cross-arm']}")
     image_list.append(tag_big_rock)
     image_list.append(tag_rock_large)
     image_list.append(tag_rock_medium)
@@ -120,31 +120,59 @@ def __obstacle_section(obstacles):
 
 **Rock**:
 
-![big-rock][big-rock]
+![Big Rock][img_big_rock]
 
 **Large Rock**:
 
-![rock-large][rock-large]
+![Large Rock][img_rock_large]
 
 **Medium Rock**:
 
-![rock-medium][rock-medium]
+![Medium Rock][img_rock_medium]
 
 **Small Rock**:
 
-![rock-small][rock-small]
+![Small Rock][img_rock_small]
 
 **Column**:
 
-![column][column]
+![Column][img_column]
 
 **Cross Arm**:
 
-![cross-arm][cross-arm]
+![Cross Arm][img_cross_arm]
 
 """
 
     return obstacles_doc
+
+
+def __wall_section(obstacles):
+    tag_corner = __generate_image("corner", f"images/{obstacles['corner']}")
+    tag_exit_wall = __generate_image("exit_wall", f"images/{obstacles['exit-wall']}")
+    tag_wall = __generate_image("wall", f"images/{obstacles['wall']}")
+    image_list.append(tag_corner)
+    image_list.append(tag_exit_wall)
+    image_list.append(tag_wall)
+
+    walls_doc = f"""
+## Walls
+
+**Corner**:
+
+![Corners][img_corner]
+
+**Exit Wall**:
+
+![Exit Wall][img_exit_wall]
+
+**Wall**:
+
+![Wall][img_wall]
+
+"""
+
+    return walls_doc
 
 
 def __image_list():
@@ -176,12 +204,13 @@ def main():
     file_name = f"{skin['folder']}/README.md"
 
     with open(file_name, 'a') as writer:
-        writer.write(__gen_title(skin["name"], skin["description"]))
-        writer.write(__gen_basic_info(skin["name"], skin["author"], skin["mail"], skin["folder"]))
-        writer.write(__item_list(skin["skin"]["items"]))
-        writer.write(__list_backgrounds(skin["skin"]["backgrounds"]))
+        writer.write(__title_section(skin["name"], skin["description"]))
+        writer.write(__basic_info_section(skin["name"], skin["author"], skin["mail"], skin["folder"]))
+        writer.write(__item_section(skin["skin"]["items"]))
+        writer.write(__backgrounds_section(skin["skin"]["backgrounds"]))
         writer.write(__hud_section(skin["skin"]["hud"]))
         writer.write(__obstacle_section(skin["skin"]["obstacles"]))
+        writer.write(__wall_section(skin["skin"]["walls"]))
         writer.write(__image_list())
 
 

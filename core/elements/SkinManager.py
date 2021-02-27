@@ -109,7 +109,44 @@ Description..: {description}
         return self.__images["obstacles"]
 
     def __load_walls(self, walls):
-        pass
+        self.__images["walls"] = dict()
+
+        corner = pygame.image.load(os.path.join(self.__img_skin_folder, walls["corner"]))
+        wall = pygame.image.load(os.path.join(self.__img_skin_folder, walls["wall"]))
+        exit_wall = pygame.image.load(os.path.join(self.__img_skin_folder, walls["exit-wall"]))
+
+        self.__images["walls"]["corners"] = [
+            corner,
+            pygame.transform.flip(corner, True, False),
+            pygame.transform.flip(corner, True, True),
+            pygame.transform.flip(corner, False, True),
+        ]
+
+        self.__images["walls"]["exits"] = {
+            1: [
+                exit_wall,
+                pygame.transform.flip(exit_wall, True, False)
+            ],
+            2: [
+                pygame.transform.rotate(exit_wall, -90),
+                pygame.transform.flip(pygame.transform.rotate(exit_wall, -90), False, True)
+            ],
+            3: [
+                pygame.transform.flip(exit_wall, False, True),
+                pygame.transform.rotate(exit_wall, 180)
+            ],
+            4: [
+                pygame.transform.flip(pygame.transform.rotate(exit_wall, 90), False, True),
+                pygame.transform.flip(pygame.transform.rotate(exit_wall, 270), True, True)
+            ]
+        }
+
+        self.__images["walls"]["hard_walls"] = {
+            1: wall,
+            2: pygame.transform.rotate(wall, -90),
+            3: pygame.transform.flip(wall, True, True),
+            4: pygame.transform.rotate(wall, 90)
+        }
 
     def get_walls(self):
-        pass
+        return  self.__images["walls"]

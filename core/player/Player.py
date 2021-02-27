@@ -3,7 +3,6 @@ from random import randrange
 import pygame
 from pygame.sprite import AbstractGroup
 
-from core.elements.ColorPallete import BASE_PALLETE
 from core.items.Item import Coin
 
 
@@ -18,7 +17,7 @@ class Player(pygame.sprite.Sprite):
 
         self.image = pygame.Surface([64, 64])
 
-        self.image.fill(BASE_PALLETE["PLAYER"])
+        self.image.fill((255, 255, 0))
         self.rect = self.image.get_rect()
 
         x = randrange(50, 685)

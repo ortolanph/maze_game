@@ -17,29 +17,29 @@ This is the basic skin for the maze game
 
 **Coin**:
 
-![Coin][coin]
+![Coin][img_coin]
 
 
 ## Backgrounds
 
 **Normal**:
 
-![background_normal][background_normal]
+![Normal Background][img_background_normal]
 
 **Start**:
 
-![background_start][background_start]
+![Start Background][img_background_start]
 
 **End**:
 
-![background_end][background_end]
+![Ending Background][img_background_end]
 
 
 ## HUD
 
 **Image**:
 
-![hud][hud]
+![HUD][img_hud]
 
 | Property | Value |
 |:--------:|:-----:|
@@ -53,36 +53,54 @@ This is the basic skin for the maze game
 
 **Rock**:
 
-![big-rock][big-rock]
+![Big Rock][img_big_rock]
 
 **Large Rock**:
 
-![rock-large][rock-large]
+![Large Rock][img_rock_large]
 
 **Medium Rock**:
 
-![rock-medium][rock-medium]
+![Medium Rock][img_rock_medium]
 
 **Small Rock**:
 
-![rock-small][rock-small]
+![Small Rock][img_rock_small]
 
 **Column**:
 
-![column][column]
+![Column][img_column]
 
 **Cross Arm**:
 
-![cross-arm][cross-arm]
+![Cross Arm][img_cross_arm]
 
-[coin]: images/basic-coin.png
-[background_normal]: images/basic-normal.png
-[background_start]: images/basic-start.png
-[background_end]: images/basic-end.png
-[hud]: images/basic-hud.png
-[big-rock]: images/basic-rock-xl.png
-[rock-large]: images/basic-rocks-x.png
-[rock-medium]: images/basic-rock-m.png
-[rock-small]: images/basic-rock-s.png
-[column]: images/basic-column.png
-[cross-arm]: images/basic-cross-arm.png
+
+## Walls
+
+**Corner**:
+
+![Corners][img_corner]
+
+**Exit Wall**:
+
+![Exit Wall][img_exit_wall]
+
+**Wall**:
+
+![Wall][img_wall]
+
+[img_coin]: images/basic-coin.png
+[img_background_normal]: images/basic-normal.png
+[img_background_start]: images/basic-start.png
+[img_background_end]: images/basic-end.png
+[img_hud]: images/basic-hud.png
+[img_big_rock]: images/basic-rock-xl.png
+[img_rock_large]: images/basic-rocks-x.png
+[img_rock_medium]: images/basic-rock-m.png
+[img_rock_small]: images/basic-rock-s.png
+[img_column]: images/basic-column.png
+[img_cross_arm]: images/basic-cross-arm.png
+[img_corner]: images/basic-corner.png
+[img_exit_wall]: images/basic-exit-wall.png
+[img_wall]: images/basic-wall.png
