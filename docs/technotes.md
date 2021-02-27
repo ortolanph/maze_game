@@ -25,7 +25,7 @@ The maze is a 4 x 4 grid, just run the following command:
 ```shell
 usage: mazegame [-h] [--width WIDTH] [--height HEIGHT]
                 [--joy-profile {none,ps4,xbox,airflo}]
-                [--print-maze PRINT_MAZE]
+                [--print-maze PRINT_MAZE] [--skin SKIN]
 
 Creates a Maze Game session
 
@@ -37,6 +37,7 @@ optional arguments:
                         Loads a Joystick Profile (ps4, xbox, airflo)
   --print-maze PRINT_MAZE
                         Prints the Maze
+  --skin SKIN           Selects a Skin
 
 Be challenged!
 ```

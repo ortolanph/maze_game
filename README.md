@@ -10,6 +10,7 @@ A simple game written in Python using the PyGame API.
  * **2021-17-02**: Integration with console joysticks (PS4 and XBOX)
  * **2021-19-02**: Adding Treasures and Obstacles in the rooms
  * **2021-21-02**: A simple HUD implementation
+ * **2021-27-02**: Basic Scenario Skin
 
 ## Index
 
@@ -17,25 +18,15 @@ A simple game written in Python using the PyGame API.
  2. [Obstacles and Treasures](docs/obstaclesandtreasures.md)
  3. [Joysticks](docs/joysticks.md)
  4. [HUD](docs/hud.md)
+ 5. [Skins](docs/skins.md)
 
 ## Next Steps
 
 These are the next steps that will be taken:
 
- * Adding simple images to Player, Walls, and Treasures
- * Skins to scenario
- * Player Characters
- * Player Profile and Game Save
-
-Other Steps (not planned):
- * Customization using GUI
- * Auto save:
-    * each 20 rooms visited
-    * each maze completed
- * Statistics and Trophies:
-    * Mazes Completed
-    * Mazes Completed by dimension
-    * Gold earned
-    * Rooms visited
-    * etc...
-   
+ * Basic Player
+ * Other Characters
+ * Ghost Item: Allow pass through walls
+ * Teleport Item: Teleport to a random room
+ * Statistics and Trophies
+ * Game Setting GUI

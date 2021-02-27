@@ -191,7 +191,7 @@ def main():
     )
     parser.add_argument(
         "--skin",
-        help="Skin SVG file",
+        help="Skin JSON file",
         type=str,
     )
     args = parser.parse_args()
