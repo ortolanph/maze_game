@@ -2,3 +2,5 @@
 __pycache__
 build
 dist
+maze_game
+maze_game.spec
