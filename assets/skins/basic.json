@@ -8,7 +8,8 @@
     "walls": {
       "corner": "basic-corner.png",
       "wall": "basic-wall.png",
-      "exit-wall": "basic-exit-wall.png"
+      "exit-wall": "basic-exit-wall.png",
+      "exit-step": "basic-exit-step.png"
     },
     "backgrounds": {
       "normal": "basic-normal.png",
@@ -39,6 +40,7 @@
       "rock-medium": "basic-rock-m.png",
       "rock-small": "basic-rock-s.png",
       "column": "basic-column.png",
+      "cross-middle": "basic-cross-middle.png",
       "cross-arm": "basic-cross-arm.png"
     }
   }

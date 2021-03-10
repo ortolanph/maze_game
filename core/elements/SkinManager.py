@@ -95,6 +95,8 @@ Description..: {description}
         cross_arm = pygame.image.load(
             os.path.join(self.__img_skin_folder, obstacles["cross-arm"]))
 
+        self.__images["obstacles"]["cross-middle"] = pygame.image.load(
+            os.path.join(self.__img_skin_folder, obstacles["cross-middle"]))
         self.__images["obstacles"]["cross-arm-north"] = cross_arm
         self.__images["obstacles"]["cross-arm-east"] = pygame.transform.rotate(cross_arm, -90)
         self.__images["obstacles"]["cross-arm-south"] = pygame.transform.flip(cross_arm, False, True)
@@ -114,6 +116,7 @@ Description..: {description}
         corner = pygame.image.load(os.path.join(self.__img_skin_folder, walls["corner"]))
         wall = pygame.image.load(os.path.join(self.__img_skin_folder, walls["wall"]))
         exit_wall = pygame.image.load(os.path.join(self.__img_skin_folder, walls["exit-wall"]))
+        exit_step = pygame.image.load(os.path.join(self.__img_skin_folder, walls["exit-step"]))
 
         self.__images["walls"]["corners"] = [
             corner,
@@ -141,11 +144,18 @@ Description..: {description}
             ]
         }
 
-        self.__images["walls"]["hard_walls"] = {
+        self.__images["walls"]["hard-walls"] = {
             1: wall,
             2: pygame.transform.rotate(wall, -90),
             3: pygame.transform.flip(wall, True, True),
             4: pygame.transform.rotate(wall, 90)
+        }
+
+        self.__images["walls"]["exit-steps"] = {
+            1: exit_step,
+            2: pygame.transform.rotate(exit_step, -90),
+            3: pygame.transform.flip(exit_step, True, True),
+            4: pygame.transform.rotate(exit_step, 90)
         }
 
     def get_walls(self):

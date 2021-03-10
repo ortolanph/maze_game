@@ -191,6 +191,7 @@ def main():
         movingsprites.draw(screen)
 
         game_room = maze.room_at(current_room_x, current_room_y)
+        game_room.room_steps().draw(screen)
         game_room.room_walls().draw(screen)
 
         if len(game_room.items) > 0:

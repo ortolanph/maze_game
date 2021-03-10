@@ -25,6 +25,9 @@ class GameMaze:
         my_walls = self.wall_builder.build_walls(room.exits)
         game_room.add_walls(my_walls)
 
+        my_steps = self.wall_builder.build_steps(room.exits)
+        game_room.add_steps(my_steps)
+
         if room.kind == 1:
             random_obstacle = randrange(0, len(OBSTACLES_ARRAY))
             chosen_obstacle = OBSTACLES_ARRAY[random_obstacle]

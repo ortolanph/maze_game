@@ -107,12 +107,14 @@ def __obstacle_section(obstacles):
     tag_rock_medium = __generate_image("rock_medium", f"images/{obstacles['rock-medium']}")
     tag_rock_small = __generate_image("rock_small", f"images/{obstacles['rock-small']}")
     tag_column = __generate_image("column", f"images/{obstacles['column']}")
+    tag_cross_middle = __generate_image("cross_middle", f"images/{obstacles['cross-middle']}")
     tag_cross_arm = __generate_image("cross_arm", f"images/{obstacles['cross-arm']}")
     image_list.append(tag_big_rock)
     image_list.append(tag_rock_large)
     image_list.append(tag_rock_medium)
     image_list.append(tag_rock_small)
     image_list.append(tag_column)
+    image_list.append(tag_cross_middle)
     image_list.append(tag_cross_arm)
 
     obstacles_doc = f"""
@@ -138,6 +140,10 @@ def __obstacle_section(obstacles):
 
 ![Column][img_column]
 
+**Cross Middle**:
+
+![Cross Arm][img_cross_middle]
+
 **Cross Arm**:
 
 ![Cross Arm][img_cross_arm]
@@ -150,9 +156,11 @@ def __obstacle_section(obstacles):
 def __wall_section(obstacles):
     tag_corner = __generate_image("corner", f"images/{obstacles['corner']}")
     tag_exit_wall = __generate_image("exit_wall", f"images/{obstacles['exit-wall']}")
+    tag_exit_step = __generate_image("exit_step", f"images/{obstacles['exit-step']}")
     tag_wall = __generate_image("wall", f"images/{obstacles['wall']}")
     image_list.append(tag_corner)
     image_list.append(tag_exit_wall)
+    image_list.append(tag_exit_step)
     image_list.append(tag_wall)
 
     walls_doc = f"""
@@ -165,6 +173,10 @@ def __wall_section(obstacles):
 **Exit Wall**:
 
 ![Exit Wall][img_exit_wall]
+
+**Exit Step**:
+
+![Exit Step][img_exit_step]
 
 **Wall**:
 

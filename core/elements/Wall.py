@@ -18,6 +18,13 @@ WALLS = {
     4: (0, 50)
 }
 
+STEPS = {
+    1: (250, 0),
+    2: (750, 250),
+    3: (250, 750),
+    4: (0, 250)
+}
+
 
 class Wall(pygame.sprite.Sprite):
 
@@ -59,6 +66,15 @@ class WallBuilder:
             walls.add(Wall(EXITS[my_exit][1][0], EXITS[my_exit][1][1], my_exits[my_exit][1]))
 
     def __add_walls(self, walls, hard_walls):
-        my_walls = self.__walls_source_images["hard_walls"]
+        my_walls = self.__walls_source_images["hard-walls"]
         for my_wall in hard_walls:
             walls.add(Wall(WALLS[my_wall][0], WALLS[my_wall][1], my_walls[my_wall]))
+
+    def build_steps(self, exits):
+        steps = self.__walls_source_images["exit-steps"]
+        my_steps = []
+
+        for my_exit in exits:
+            my_steps.append(Wall(STEPS[my_exit][0], STEPS[my_exit][1], steps[my_exit]))
+
+        return my_steps

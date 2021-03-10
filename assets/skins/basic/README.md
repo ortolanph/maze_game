@@ -71,6 +71,10 @@ This is the basic skin for the maze game
 
 ![Column][img_column]
 
+**Cross Middle**:
+
+![Cross Arm][img_cross_middle]
+
 **Cross Arm**:
 
 ![Cross Arm][img_cross_arm]
@@ -86,6 +90,10 @@ This is the basic skin for the maze game
 
 ![Exit Wall][img_exit_wall]
 
+**Exit Step**:
+
+![Exit Step][img_exit_step]
+
 **Wall**:
 
 ![Wall][img_wall]
@@ -100,7 +108,9 @@ This is the basic skin for the maze game
 [img_rock_medium]: images/basic-rock-m.png
 [img_rock_small]: images/basic-rock-s.png
 [img_column]: images/basic-column.png
+[img_cross_middle]: images/basic-cross-middle.png
 [img_cross_arm]: images/basic-cross-arm.png
 [img_corner]: images/basic-corner.png
 [img_exit_wall]: images/basic-exit-wall.png
+[img_exit_step]: images/basic-exit-step.png
 [img_wall]: images/basic-wall.png

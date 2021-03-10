@@ -45,7 +45,8 @@ The skin descriptor has the following structure:
     "walls": {
       "corner": "image-to-corner.png",
       "wall": "image-to-wall.png",
-      "exit-wall": "image-to-exit-wall.png"
+      "exit-wall": "image-to-exit-wall.png",
+      "exit-step": "image-to-exit-step.png"
     },
     "backgrounds": {
       "normal": "image-to-normal.png",
@@ -76,7 +77,8 @@ The skin descriptor has the following structure:
       "rock-medium": "image-to-rock-m.png",
       "rock-small": "image-to-rock-s.png",
       "column": "image-to-column.png",
-      "cross-arm": "image-to-cross-arm.png"
+      "cross-arm": "image-to-cross-arm.png",
+      "cross-middle": "image-to-cross-middle.png"
     }
   }
 }
@@ -108,7 +110,8 @@ The walls sections have three pictures. The following excerpt shows the walls se
     "walls": {
       "corner": "image-to-corner.png",
       "wall": "image-to-wall.png",
-      "exit-wall": "image-to-exit-wall.png"
+      "exit-wall": "image-to-exit-wall.png",
+      "exit-step": "image-to-exit-step.png"
     }
 ```
 
@@ -116,11 +119,24 @@ The walls are composed mainly by three pictures:
 
 | Image | Width (px) | Height (px) |
 | ----- |:----------:|:-----------:|
-| Corners | 50 | 50 |
-| Walls | 800 | 50 |
-| Exits | 250 | 50 |
+| Corners   |  50 |  50 |
+| Walls     | 800 |  50 |
+| Exits     | 250 |  50 |
+| Exit Step | 300 |  50 |
 
 All these elements are flipped and rotated to be drawn in the screen in their right position.
+
+The room is assembled like in this diagram, assuming there are two exits (NORTH and EAST):
+
+![Room diagram][room_diagram]
+
+Where:
+ - Purple is the background (described in the next section)
+ - Red are corners
+ - Yellow are Walls
+ - Grey are exits
+ - Blue (almost transparent) are the exit steps
+ 
 
 #### Backgrounds
 
@@ -218,7 +234,8 @@ There are six images regarding the obstacles:
       "rock-medium": "image-to-rock-m.png",
       "rock-small": "image-to-rock-s.png",
       "column": "image-to-column.png",
-      "cross-arm": "image-to-cross-arm.png"
+      "cross-arm": "image-to-cross-arm.png",
+      "cross-middle": "image-to-cross-middle.png"
     }
 ```
 
@@ -226,12 +243,13 @@ In the following table, their dimensions:
 
 | Obstacle | width | height |
 | -------- |:-----:|:------:|
-| Big Rock    | 400 | 400 |
-| Large Rock  | 150 | 250 |
-| Medium Rock | 150 | 150 |
-| Small Rock  |  50 |  50 |
-| Column      | 200 | 200 |
-| Cross Arm   | 200 | 150 |
+| Big Rock     | 400 | 400 |
+| Large Rock   | 150 | 250 |
+| Medium Rock  | 150 | 150 |
+| Small Rock   |  50 |  50 |
+| Column       | 200 | 200 |
+| Cross Arm    | 200 | 150 |
+| Cross Middle | 200 | 200 |
 
 Considerations:
 
@@ -243,3 +261,5 @@ Considerations:
 If you want to create a skin, don't forget to document it. Look at the [Skin README](../assets/skins/README.md) for more details. 
 
 [Back](../README.md)
+
+[room_diagram]: skins/room_diagram.png
