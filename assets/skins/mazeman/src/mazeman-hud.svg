@@ -1,4 +1,35 @@
-<svg width="800" height="50" xmlns="http://www.w3.org/2000/svg">
-    <line x1="0" y1="40" x2="700" y2="40" stroke="#00f" stroke-width="5" />
-    <line x1="0" y1="25" x2="700" y2="25" stroke="#00f" stroke-width="5" />
+<svg width="800" height="100" xmlns="http://www.w3.org/2000/svg">
+    <rect x="1" y="1"
+          rx="10" ry="10"
+          width="799" height="99"
+          fill="none" stroke="#00f" stroke-width="5"/>
+
+    <text x="20" y="30"
+          font-size="15" font-family="Namco Regular"
+          stroke="#fff">x</text>
+    <rect x="50" y="11"
+          rx="10" ry="10"
+          width="80" height="35"
+          fill="none" stroke="#00f" stroke-width="5"/>
+
+    <text x="20" y="70"
+          font-size="15" font-family="Namco Regular"
+          stroke="#fff">y</text>
+    <rect x="50" y="49"
+          rx="10" ry="10"
+          width="80" height="35"
+          fill="none" stroke="#00f" stroke-width="5"/>
+
+    <text x="655" y="30"
+          font-size="15" font-family="Namco Regular"
+          stroke="#fff">gold</text>
+    <rect x="605" y="43"
+          rx="10" ry="10"
+          width="185" height="33"
+          fill="none" stroke="#00f" stroke-width="5"/>
+
+    <text x="190" y="60"
+          font-size="35" font-family="Namco Regular"
+          stroke="#fff">mazeman</text>
+
 </svg>

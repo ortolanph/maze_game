@@ -20,13 +20,13 @@
       "coin": "mazeman-coin.png"
     },
     "hud": {
-      "image": "basic-hud.png",
-      "font": "ka1.ttf",
-      "font-size": "20",
+      "image": "mazeman-hud.png",
+      "font": "namco.ttf",
+      "font-size": "15",
       "font-color": [
         255,
         255,
-        0
+        255
       ],
       "background-color": [
         0,

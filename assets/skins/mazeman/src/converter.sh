@@ -5,7 +5,7 @@ OUTPUT_FOLDER=../images
 ROOM_IMAGES=( mazeman-normal mazeman-start mazeman-end )
 WALL_IMAGES=( mazeman-corner mazeman-exit-wall mazeman-exit-step mazeman-wall )
 OBSTACLE_IMAGES=( mazeman-rock-s mazeman-rock-m mazeman-rock-l mazeman-rock-xl mazeman-column mazeman-cross-middle mazeman-cross-arm )
-HUD=( mazeman-hud )
+HUD_IMAGES=( mazeman-hud )
 
 echo "- Items -----------------------------------------"
 inkscape -z -w 50 -h 50 mazeman-coin.svg -e $OUTPUT_FOLDER/mazeman-coin.png
