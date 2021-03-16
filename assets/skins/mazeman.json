@@ -1,0 +1,47 @@
+{
+  "name": "Mazeman",
+  "author": "Paulo Henrique Ortolan",
+  "mail": "paulo.ortolan@gmail.com",
+  "description": "Skin based upon a famous game",
+  "folder": "mazeman",
+  "skin": {
+    "walls": {
+      "corner": "mazeman-corner.png",
+      "wall": "mazeman-wall.png",
+      "exit-wall": "mazeman-exit-wall.png",
+      "exit-step": "mazeman-exit-step.png"
+    },
+    "backgrounds": {
+      "normal": "mazeman-normal.png",
+      "start": "mazeman-start.png",
+      "end": "mazeman-end.png"
+    },
+    "items": {
+      "coin": "mazeman-coin.png"
+    },
+    "hud": {
+      "image": "basic-hud.png",
+      "font": "ka1.ttf",
+      "font-size": "20",
+      "font-color": [
+        255,
+        255,
+        0
+      ],
+      "background-color": [
+        0,
+        0,
+        0
+      ]
+    },
+    "obstacles": {
+      "big-rock": "mazeman-rock-xl.png",
+      "rock-large": "mazeman-rock-l.png",
+      "rock-medium": "mazeman-rock-m.png",
+      "rock-small": "mazeman-rock-s.png",
+      "column": "mazeman-column.png",
+      "cross-middle": "mazeman-cross-middle.png",
+      "cross-arm": "mazeman-cross-arm.png"
+    }
+  }
+}

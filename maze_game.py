@@ -188,11 +188,11 @@ def main():
         screen.blit(hud, (0, 801))
         hud.update(current_room_x, current_room_y, player.gold)
 
-        movingsprites.draw(screen)
-
         game_room = maze.room_at(current_room_x, current_room_y)
         game_room.room_steps().draw(screen)
         game_room.room_walls().draw(screen)
+
+        movingsprites.draw(screen)
 
         if len(game_room.items) > 0:
             game_room.items.draw(screen)
