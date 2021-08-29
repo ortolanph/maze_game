@@ -1,0 +1,37 @@
+{
+  "name": "default",
+  "width": 40,
+  "height": 60,
+  "medatadata": {
+    "author": "Paulo Ortolan",
+    "mail": "paulo.ortolan@gmail.com"
+  },
+  "images":{
+    "stopped": "front_01.png",
+    "front": [
+      "front_01.png",
+      "front_02.png",
+      "front_03.png"
+    ],
+    "back": [
+      "back_01.png",
+      "back_02.png",
+      "back_03.png"
+    ],
+    "left": [
+      "left_01.png",
+      "left_02.png",
+      "left_03.png"
+    ],
+    "right": [
+      "right_01.png",
+      "right_02.png",
+      "right_03.png"
+    ],
+    "victory": [
+      "victory_01.png",
+      "victory_02.png",
+      "victory_03.png"
+    ]
+  }
+}

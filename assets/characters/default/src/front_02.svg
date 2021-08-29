@@ -1,0 +1,13 @@
+<svg width="64" height="64" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <rect x="1" y="1" width="63" height="63" fill="#fff" stroke="#000" stroke-width="1"/>
+  <g id="main">
+      <defs>
+          <g id="default_front_1">
+            <polygon points="16,20 20,20 20,16 24,16 24,12
+                             40,12 40,16 44,16 44,20 48,20" stroke="#000" stroke-width="1" fill="#FF0" />
+            <rect x="28" y="16" width="8" height="4" stroke="#000" stroke-width="1" fill="#F00" />
+          </g>
+      </defs>
+      <use x="0" y="0" xlink:href="#default_front_1" />
+  </g>
+</svg>

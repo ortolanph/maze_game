@@ -1,0 +1,47 @@
+<svg width="40" height="60" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="main">
+        <defs>
+            <polygon id="head_and_body"
+                     points="00,28 00,16 04,12 12,12 08,08
+                             08,04 12,00 20,00 24,04 24,08
+                             20,12 28,12 32,16 32,28 28,28
+                             28,20 24,16 24,28 08,28 08,16
+                             08,16 04,20 04,28"
+                     fill="#00f" stroke="#000" stroke-width="1"/>
+
+            <polygon id="visor"
+                     points="0,0 8,0 8,4 4,8 0,4"
+                     fill="#0ff" stroke="#000" stroke-width="1"/>
+
+            <polygon id="symbol"
+                     points="4,0 8,4 4,8 0,4"
+                     fill="#f00" stroke="#000" stroke-width="1"/>
+
+            <polygon id="foot"
+                     points="0,8 2,6 2,0 6,0 6,6 8,8"
+                     fill="#FFA500" stroke="#000" stroke-width="1"/>
+        </defs>
+
+        <use x="4" y="4" xlink:href="#head_and_body"/>
+        <use x="16" y="8" xlink:href="#visor"/>
+        <use x="16" y="20" xlink:href="#symbol"/>
+
+        <rect id="left_hand" x="4" y="32" width="4" height="4"
+              fill="#FFA500" stroke="#000" stroke-width="1"/>
+
+        <rect id="belt" x="12" y="32" width="16" height="4"
+              fill="#FFA500" stroke="#000" stroke-width="1"/>
+
+        <rect id="right_hand" x="32" y="32" width="4" height="4"
+              fill="#FFA500" stroke="#000" stroke-width="1"/>
+
+        <rect id="left_leg" x="12" y="36" width="4" height="12"
+              fill="#00f" stroke="#000" stroke-width="1"/>
+
+        <rect id="right_leg" x="24" y="36" width="4" height="12"
+              fill="#00f" stroke="#000" stroke-width="1"/>
+
+        <use x="10" y="48" xlink:href="#foot"/>
+        <use x="22" y="48" xlink:href="#foot"/>
+    </g>
+</svg>
