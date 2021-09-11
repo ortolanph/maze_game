@@ -13,6 +13,9 @@ function generateExecutable() {
 function copyAssets() {
   echo "Copying Assets"
   cp -R assets dist/assets
+  cp -R docs dist/docs
+  cp README.txt dist/README.txt
+  cp README.md dist/README.md
 }
 
 function packingDistributable() {
@@ -26,6 +29,9 @@ function packingDistributable() {
 echo "Creating a executable for maze_game"
 
 installRequirements
+clear
 generateExecutable
+clear
 copyAssets
+clear
 packingDistributable

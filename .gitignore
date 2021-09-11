@@ -2,5 +2,8 @@
 __pycache__
 build
 dist
+venv
 maze_game
+maze_game.exe
+maze_game.zip
 maze_game.spec
