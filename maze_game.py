@@ -93,7 +93,7 @@ def main():
     pygame.init()
 
     print("Loading joystick")
-    if joy_profile is not "none":
+    if joy_profile != "none":
         for i in range(pygame.joystick.get_count()):
             joysticks.append(pygame.joystick.Joystick(i))
         for joystick in joysticks:
