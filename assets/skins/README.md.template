@@ -1,0 +1,102 @@
+# {{skin.name}}
+
+{{skin.description}}
+
+## Basic info
+
+**Skin Name**: {{skin.name}}
+
+**Author**: {{skin.author}}
+
+**e-mail**: {{skin.mail}}
+
+**Base folder**: `{{skin.folder}}`
+
+
+## Items
+
+**Coin**:
+
+![Coin][img_items_coin]
+
+
+## Backgrounds
+
+**Normal**:
+
+![Normal Background][img_backgrounds_normal]
+
+**Start**:
+
+![Start Background][img_backgrounds_start]
+
+**End**:
+
+![Ending Background][img_backgrounds_end]
+
+
+## HUD
+
+**Image**:
+
+![HUD][img_hud]
+
+| Property | Value |
+|:--------:|:-----:|
+| font | {{skin.hud.font}} |
+| font-size | {{skin.hud.font_size}} |
+| font-color | {{skin.hud.font_color}} |
+| background-color | {{skin.hud.background_color}} |
+
+
+## Obstacles
+
+**Rock**:
+
+![Big Rock][img_obstacles_big_rock]
+
+**Large Rock**:
+
+![Large Rock][img_obstacles_rock_large]
+
+**Medium Rock**:
+
+![Medium Rock][img_obstacles_rock_medium]
+
+**Small Rock**:
+
+![Small Rock][img_obstacles_rock_small]
+
+**Column**:
+
+![Column][img_obstacles_column]
+
+**Cross Middle**:
+
+![Cross Arm][img_obstacles_cross_middle]
+
+**Cross Arm**:
+
+![Cross Arm][img_obstacles_cross_arm]
+
+
+## Walls
+
+**Corner**:
+
+![Corners][img_walls_corner]
+
+**Exit Wall**:
+
+![Exit Wall][img_walls_exit_wall]
+
+**Exit Step**:
+
+![Exit Step][img_walls_exit_step]
+
+**Wall**:
+
+![Wall][img_walls_wall]
+
+{% for image in skin.images %}
+[{{image}}]: images/{{skin.images[image]}}{% endfor %}

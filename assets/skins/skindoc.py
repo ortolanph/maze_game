@@ -1,199 +1,140 @@
 import argparse
 import json
 import os
+from jinja2 import Template
 
-image_list = []
-
-
-def __generate_image(key, file):
-    return f"[img_{key}]: {file}"
+template_file = "README.md.template"
+target_file = "README.md"
 
 
-def __title_section(title_doc, description):
-    title_doc = f"""# {title_doc}
+class Hud:
+    image = ""
+    font = ""
+    font_size = 0
+    font_color = ""
+    background_color = ""
 
-{description}
+    def to_dict(self):
+        hub_dict = {
+            "image": self.image,
+            "font": self.font,
+            "font_size": self.font_size,
+            "font_color": self.font_color,
+            "background_color": self.background_color
+        }
+
+        return hub_dict
+
+    def to_string(self):
+        return f"""
+- HUD ---------------------------------------------------------------
+  Image.............: {self.image}
+  Font..............: {self.font}
+  Font Size.........: {self.font_size}
+  Font Color........: {self.font_color}
+  Background Color..: {self.background_color}
+---------------------------------------------------------------------"""
+
+
+class Skin:
+    name = ""
+    author = ""
+    mail = ""
+    description = ""
+    folder = ""
+    images = {}
+    hud = Hud
+
+    def to_dict(self):
+        skin_dict = {
+            "name": self.name,
+            "author": self.author,
+            "mail": self.mail,
+            "description": self.description,
+            "folder": self.folder,
+            "images": self.images,
+            "hud": self.hud.to_dict()
+        }
+
+        return skin_dict
+
+    def to_string(self):
+        rep = f"""
+print("= SKIN ==============================================================")
+print(f"Name.........: {self.name}")
+print(f"Author.......: {self.author}")
+print(f"Mail.........: {self.mail}")
+print(f"Description..: {self.description}")
+print(f"Folder.......: {self.folder}")
+print("Images")"""
+
+        image_list = ""
+        for image in self.images:
+            image_list = image_list + f" - {image}: {self.images[image]}\n"
+
+        image_list = image_list.removesuffix("\n")
+
+        rep = rep + f"""
+{image_list}
+{self.hud.to_string()}
+=====================================================================
 """
+        return rep
 
-    return title_doc
 
+def __image_map(prefix, images, skin_data):
+    for key in images:
+        doc_key = f"img_{prefix}_{key}".replace('-', '_')
+        skin_data.images[doc_key] = images[key]
 
-def __basic_info_section(name, author, mail, folder):
-    basic_info_doc = f"""
-## Basic info
-    
-**Skin Name**: {name}
 
-**Author**: {author}
+def __to_hud(data):
+    hud_data = Hud()
+    hud_data.image = data["image"]
+    hud_data.font = data["font"]
+    hud_data.font_size = data["font-size"]
+    hud_data.font_color = data["font-color"]
+    hud_data.background_color = data["background-color"]
+    return hud_data
 
-**e-mail**: {mail}
 
-**Base folder**: `{folder}`
+def __to_skin(data):
+    skin_data = Skin()
+    skin_data.name = data["name"]
+    skin_data.author = data["author"]
+    skin_data.mail = data["mail"]
+    skin_data.description = data["description"]
+    skin_data.folder = data["folder"]
 
-"""
+    prefixes = ["walls", "backgrounds", "items", "obstacles"]
 
-    return basic_info_doc
+    for prefix in prefixes:
+        __image_map(prefix, data["skin"][prefix], skin_data)
 
+    hud = __to_hud(data["skin"]["hud"])
+    skin_data.images["img_hud"] = hud.image
+    skin_data.hud = hud
 
-def __item_section(items_doc):
-    tag_coin = __generate_image("coin", f"images/{items_doc['coin']}")
-    image_list.append(tag_coin)
+    return skin_data
 
-    items_doc = f"""
-## Items
 
-**Coin**:
+def __render(template, skin_data):
+    return template.render(
+        skin=skin_data).strip()
 
-![Coin][img_coin]
 
-"""
+def ___generate_readme(skin_data):
+    with open(template_file) as file_:
+        template = Template(file_.read())
 
-    return items_doc
+    rendered_report = __render(template, skin_data)
 
+    target_folder = skin_data["folder"]
+    with open(f"{target_folder}/{target_file}", 'a') as writer:
+        writer.writelines(rendered_report)
 
-def __backgrounds_section(backgrounds):
-    tag_normal = __generate_image("background_normal", f"images/{backgrounds['normal']}")
-    tag_start = __generate_image("background_start", f"images/{backgrounds['start']}")
-    tag_end = __generate_image("background_end", f"images/{backgrounds['end']}")
-    image_list.append(tag_normal)
-    image_list.append(tag_start)
-    image_list.append(tag_end)
-
-    backgrounds_doc = f"""
-## Backgrounds
-
-**Normal**:
-
-![Normal Background][img_background_normal]
-
-**Start**:
-
-![Start Background][img_background_start]
-
-**End**:
-
-![Ending Background][img_background_end]
-
-"""
-
-    return backgrounds_doc
-
-
-def __hud_section(hud):
-    tag_hud = __generate_image("hud", f"images/{hud['image']}")
-    image_list.append(tag_hud)
-
-    hud_doc = f"""
-## HUD
-
-**Image**:
-
-![HUD][img_hud]
-
-| Property | Value |
-|:--------:|:-----:|
-| font | {hud['font']} |
-| font-size | {hud['font-size']} |
-| font-color | {hud['font-color']} |
-| background-color | {hud['background-color']} |
-
-"""
-    return hud_doc
-
-
-def __obstacle_section(obstacles):
-    tag_big_rock = __generate_image("big_rock", f"images/{obstacles['big-rock']}")
-    tag_rock_large = __generate_image("rock_large", f"images/{obstacles['rock-large']}")
-    tag_rock_medium = __generate_image("rock_medium", f"images/{obstacles['rock-medium']}")
-    tag_rock_small = __generate_image("rock_small", f"images/{obstacles['rock-small']}")
-    tag_column = __generate_image("column", f"images/{obstacles['column']}")
-    tag_cross_middle = __generate_image("cross_middle", f"images/{obstacles['cross-middle']}")
-    tag_cross_arm = __generate_image("cross_arm", f"images/{obstacles['cross-arm']}")
-    image_list.append(tag_big_rock)
-    image_list.append(tag_rock_large)
-    image_list.append(tag_rock_medium)
-    image_list.append(tag_rock_small)
-    image_list.append(tag_column)
-    image_list.append(tag_cross_middle)
-    image_list.append(tag_cross_arm)
-
-    obstacles_doc = f"""
-## Obstacles
-
-**Rock**:
-
-![Big Rock][img_big_rock]
-
-**Large Rock**:
-
-![Large Rock][img_rock_large]
-
-**Medium Rock**:
-
-![Medium Rock][img_rock_medium]
-
-**Small Rock**:
-
-![Small Rock][img_rock_small]
-
-**Column**:
-
-![Column][img_column]
-
-**Cross Middle**:
-
-![Cross Arm][img_cross_middle]
-
-**Cross Arm**:
-
-![Cross Arm][img_cross_arm]
-
-"""
-
-    return obstacles_doc
-
-
-def __wall_section(obstacles):
-    tag_corner = __generate_image("corner", f"images/{obstacles['corner']}")
-    tag_exit_wall = __generate_image("exit_wall", f"images/{obstacles['exit-wall']}")
-    tag_exit_step = __generate_image("exit_step", f"images/{obstacles['exit-step']}")
-    tag_wall = __generate_image("wall", f"images/{obstacles['wall']}")
-    image_list.append(tag_corner)
-    image_list.append(tag_exit_wall)
-    image_list.append(tag_exit_step)
-    image_list.append(tag_wall)
-
-    walls_doc = f"""
-## Walls
-
-**Corner**:
-
-![Corners][img_corner]
-
-**Exit Wall**:
-
-![Exit Wall][img_exit_wall]
-
-**Exit Step**:
-
-![Exit Step][img_exit_step]
-
-**Wall**:
-
-![Wall][img_wall]
-
-"""
-
-    return walls_doc
-
-
-def __image_list():
-    all_images = ""
-
-    for image in image_list:
-        all_images += f"{image}\n"
-
-    return all_images
+    file_.close()
+    writer.close()
 
 
 def main():
@@ -213,17 +154,9 @@ def main():
     with open(os.path.join(f"{skin_parameter}.json"), "r+") as skin_definition:
         skin = json.load(skin_definition)
 
-    file_name = f"{skin['folder']}/README.md"
+    template_data = __to_skin(skin)
 
-    with open(file_name, 'a') as writer:
-        writer.write(__title_section(skin["name"], skin["description"]))
-        writer.write(__basic_info_section(skin["name"], skin["author"], skin["mail"], skin["folder"]))
-        writer.write(__item_section(skin["skin"]["items"]))
-        writer.write(__backgrounds_section(skin["skin"]["backgrounds"]))
-        writer.write(__hud_section(skin["skin"]["hud"]))
-        writer.write(__obstacle_section(skin["skin"]["obstacles"]))
-        writer.write(__wall_section(skin["skin"]["walls"]))
-        writer.write(__image_list())
+    ___generate_readme(template_data.to_dict())
 
 
 if __name__ == '__main__':
