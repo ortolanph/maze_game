@@ -1,4 +1,5 @@
 from random import randrange, choice
+from uuid import uuid4
 
 import pygame
 from pygame.sprite import AbstractGroup
@@ -31,11 +32,13 @@ BUDGETS = [100, 200, 300, 400, 500]
 
 
 class Coin(GameItem):
+    id = ""
     budget = 0
 
     def __init__(self, loaded_image, *groups: AbstractGroup):
         my_budget = choice(BUDGETS)
         self.budget = my_budget
+        self.id = str(uuid4())
 
         position = randrange(0, 4)
         x = COIN_POSITION[position]["x"]

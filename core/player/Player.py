@@ -4,6 +4,7 @@ import pygame
 from pygame.sprite import AbstractGroup
 
 from core.items.Item import Coin
+from core.observers.event_manager import EventManager
 
 
 class Player(pygame.sprite.Sprite):
@@ -34,7 +35,7 @@ class Player(pygame.sprite.Sprite):
         self.change_x = 0
         self.change_y = 0
 
-    def move(self, game_room):
+    def move(self, game_room, event_manager: EventManager):
         self.rect.x += self.change_x
 
         block_hit_list = pygame.sprite.spritecollide(self, game_room.walls, False)
@@ -58,4 +59,5 @@ class Player(pygame.sprite.Sprite):
         for item in item_hit_list:
             if isinstance(item, Coin):
                 self.gold += item.budget
+                event_manager.on_collect_treasure(item)
                 game_room.remove_item(item)

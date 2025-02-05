@@ -9,6 +9,7 @@ from maze_api.maze import Maze
 from core.elements.HUD import HUD
 from core.elements.SkinManager import SkinManager
 from core.maze.GameMaze import GameMaze
+from core.observers.event_manager import EventManager
 from core.player.Player import Player
 
 PLAYER_STEP = 10
@@ -66,6 +67,8 @@ def main():
     print_maze = arguments["print_maze"]
     joy_profile = arguments["joy_profile"]
     skin = arguments["skin"]
+
+    event_manager = EventManager()
 
     if (my_width < 4 or my_width > 999) or (my_height < 4 or my_height > 999):
         print(f"Invalid witdth ({my_width}) or height ({my_height})")
@@ -166,7 +169,7 @@ def main():
                 if event.key == pygame.K_DOWN:
                     player.change_speed(0, -PLAYER_STEP)
 
-        player.move(game_room)
+        player.move(game_room, event_manager)
 
         if player.rect.x < 0:
             current_room_x -= 1
@@ -187,6 +190,7 @@ def main():
         screen.blit(skin_manager.get_background(game_room.kind), (0, 0))
         screen.blit(hud, (0, 801))
         hud.update(current_room_x, current_room_y, player.gold)
+        event_manager.on_enter_room(f'{current_room_x.zfill(3)}{current_room_y.zfill(3)}')
 
         game_room = maze.room_at(current_room_x, current_room_y)
         game_room.room_steps().draw(screen)
@@ -196,6 +200,9 @@ def main():
 
         if len(game_room.items) > 0:
             game_room.items.draw(screen)
+
+        if game_room.kind == "END":
+            event_manager.on_finish_maze()
 
         pygame.display.flip()
 
